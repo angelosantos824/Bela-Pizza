@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bella Pizza | Reservas de Mesa</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="logo"><h1>Bella Pizza 🍕</h1></div>
+        <nav>
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="historia.html">História</a></li>
+                <li><a href="menu.html">Cardápio</a></li>
+                <li><a href="pedidomesa.html">Pedido na Mesa</a></li>
+                <li><a href="reservas.html" class="active">Reservas</a></li>
+                <li><a href="contatos.html">Contactos</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        <section class="reserva-header">
+            <h3>Reserve a sua Experiência</h3>
+            <p>Garanta o seu lugar na nossa casa. Reservas disponíveis para almoço e jantar.</p>
+        </section>
+
+        <form action="#" method="POST" class="form-complexo">
+            
+            <fieldset>
+                <legend>1. Detalhes da Visita</legend>
+                <div class="flex">
+                    <div class="w-50">
+                        <label for="data">Data da Reserva:</label>
+                        <input type="date" id="data" name="data" required>
+                    </div>
+                    <div class="w-50">
+                        <label for="hora">Horário:</label>
+                        <input type="time" id="hora" name="hora" min="12:00" max="23:00" required>
+                    </div>
+                </div>
+
+                <label>Preferência de Ambiente:</label>
+                <div class="radio-group">
+                    <input type="radio" id="interior" name="ambiente" value="interior" checked>
+                    <label for="interior" class="label-inline">Salão Interior (Climatizado)</label>
+                    
+                    <input type="radio" id="esplanada" name="ambiente" value="esplanada">
+                    <label for="esplanada" class="label-inline">Esplanada (Vista Canal)</label>
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend>2. Composição do Grupo</legend>
+                <div class="flex">
+                    <div class="w-50">
+                        <label for="adultos">Adultos:</label>
+                        <input type="number" id="adultos" name="adultos" min="1" max="20" value="1">
+                    </div>
+                    <div class="w-50">
+                        <label for="criancas">Crianças (< 8 anos):</label>
+                        <input type="number" id="criancas" name="criancas" min="0" max="10" value="0">
+                        <small>*(Lembrete: Desconto de 50% no rodízio para os pequenos!)</small>
+                    </div>
+                </div>
+                <label>Necessita de cadeira alta para bebé?</label>
+                <select name="cadeira_bebe">
+                    <option value="nao">Não</option>
+                    <option value="1">Sim, 1 cadeira</option>
+                    <option value="2">Sim, 2 cadeiras</option>
+                </select>
+            </fieldset>
+
+            <fieldset>
+                <legend>3. Ocasião Especial</legend>
+                <label for="ocasiao">É uma celebração?</label>
+                <select id="ocasiao" name="ocasiao">
+                    <option value="jantar_comum">Jantar/Almoço Comum</option>
+                    <option value="aniversario">Aniversário</option>
+                    <option value="aniversario_casamento">Aniversário de Casamento</option>
+                    <option value="evento_empresa">Evento Empresarial</option>
+                </select>
+
+                <div class="checkbox-group">
+                    <input type="checkbox" id="decoracao" name="decoracao">
+                    <label for="decoracao" class="label-inline">Desejo decoração temática na mesa (+&euro;5,00)</label>
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend>4. Notas Adicionais</legend>
+                <label for="notas">Restrições alimentares ou pedidos especiais:</label>
+                <textarea id="notas" name="notas" rows="4" placeholder="Ex: Alergia a frutos secos, mesa num canto mais calmo..."></textarea>
+            </fieldset>
+
+            <div class="termos">
+                <input type="checkbox" id="termos" required>
+                <label for="termos" class="label-inline">Compreendo que a reserva será mantida por apenas 15 minutos após o horário marcado.</label>
+            </div>
+
+            <button type="submit" class="btn-reserva-final">Confirmar Reserva de Mesa</button>
+        </form>
+    </main>
+    <footer id="contacto">
+        <div class="container flex">
+            <div class="footer-info">
+                <h3>Bella Pizza Aveiro</h3>
+                <p>Rua dos Mercadores, 123</p>
+                <p>3800-123 Aveiro</p>
+            </div>
+            <div class="footer-social">
+                <h3>Siga-nos</h3>
+                <a href="#">Facebook</a> | <a href="#">Instagram</a>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2026 Bella Pizza - Todos os direitos reservados # Projeto Final — UC00604 Frontend.</p>
+        </div>
+    </footer>
+
+</body>
+</html>

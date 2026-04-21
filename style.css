@@ -1,0 +1,958 @@
+/* --- Estilos da Nova Logo Minimalista (SVG) --- */
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none; /* Remove sublinhado do link */
+    color: white; /* Cor do texto ao lado da logo */
+    gap: 10px; /* Espaço entre o ícone e o texto */
+}
+
+.logo-svg {
+    width: 40px; /* Altura da logo no menu */
+    height: 40px;
+    /* Aula 7:currentColor faz o SVG usar a cor do texto do elemento pai (.logo-link) */
+    color: white; 
+    transition: transform 0.3s ease; /* Efeito suave no hover */
+}
+
+.logo-text {
+    font-size: 20px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px; /* Espaçamento entre letras minimalista */
+}
+
+/* Efeito de Hover na Logo */
+.logo-link:hover .logo-svg {
+    transform: rotate(-10deg) scale(1.1); /* Pequena rotação e aumento */
+}
+/* Aula 7: Reset e Sintaxe Base */
+body {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    margin: 0;
+    line-height: 1.6;
+    background-color: #fffaf5; /* Fundo Creme Suave */
+    color: #333;
+    scroll-behavior: smooth; /* Rolagem suave entre âncoras */
+}
+
+.container {
+    width: 85%;
+    margin: 0 auto;
+    max-width: 1200px;
+}
+
+.flex {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+h2 {
+    text-align: center;
+    color: #ffffff; /* Vermelho Pizza */
+    font-size: 36px;
+    margin-top: 50px;
+    margin-bottom: 30px;
+}
+
+h3 {
+    text-align: center;
+    color: #050505; /* Vermelho Pizza */
+    font-size: 36px;
+    margin-top: 50px;
+    margin-bottom: 30px;
+}
+
+/* Aula 9: Position Sticky - Navegação */
+.navbar {
+    position: sticky;
+    top: 0;
+    background-color: rgba(185, 28, 28, 0.95); /* Vermelho com transparência */
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 5%;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+}
+
+.logo h1 {
+    margin: 0;
+    font-size: 24px;
+}
+/* logo home */
+.logo span {
+    font-size: 20px;
+    opacity: 0.8;
+}
+
+.navbar ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar ul li a {
+    color: white;
+    text-decoration: none;
+    margin-left: 15px;
+    padding: 5px 10px;
+    font-weight: bold;
+    border-radius: 4px;
+}
+
+.navbar ul li a:hover {
+    background-color: rgba(255,255,255,0.2);
+}
+
+/* Aula 8 e 9: Box Model e Fundo de Imagem (Hero) */
+#hero {
+    height: 100vh; /* 100% da altura da tela */
+    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.7)), 
+                      url('https://images.unsplash.com/photo-1513104890138-7c749659a591?q=80&w=1600&auto=format&fit=crop');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+    gap: 20px;
+}
+
+.hero-content h2 {
+    color: white;
+    font-size: 55px;
+    margin-bottom: 10px;
+}
+
+.hero-content p {
+    font-size: 18px;
+    margin-bottom: 55px;
+}
+/* verificar com o joão a forma de baixar o boton de peça ja */
+.btn-principal {
+    background-color: #f59e0b; /* Laranja Destaque */
+    color: white;
+    padding: 15px 145px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 20px;
+    font-size: 18px;
+    
+}
+/* --- Secção Eventos --- */
+#eventos-empresas {
+    background-color: #fff;
+    padding: 60px 0;
+    margin: 40px 0;
+    border-radius: 15px;
+}
+
+.eventos-wrapper {
+    align-items: center;
+    gap: 40px;
+}
+
+.eventos-imagem, .eventos-texto {
+    width: 50%;
+}
+
+.eventos-imagem img {
+    width: 100%;
+    border-radius: 12px;
+    box-shadow: 10px 10px 0px #f59e0b; /* Aula 8: Shadow criativa */
+}
+
+.eventos-texto ul {
+    list-style-type: "🍕 ";
+    padding-left: 20px;
+    margin: 20px 0;
+}
+
+.btn-secundario {
+    display: inline-block;
+    padding: 12px 25px;
+    border: 2px solid #b91c1c;
+    color: #b91c1c;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+.btn-secundario:hover {
+    background-color: #b91c1c;
+    color: white;
+}
+
+/* --- Secção Aniversário --- */
+.card-aniversario {
+    position: relative; /* Para o selo absolute */
+    background: linear-gradient(135deg, #1f2937 0%, #111827 100%);
+    color: white;
+    padding: 40px;
+    border-radius: 20px;
+    overflow: hidden;
+    margin-bottom: 60px;
+}
+
+.aniv-texto, .aniv-imagem {
+    width: 50%;
+    color: white;
+}
+
+.aniv-imagem img {
+    width: 100%;
+    border-radius: 15px;
+    transform: rotate(2deg); /* Charme visual */
+}
+
+.selo-desconto {
+    position: absolute;
+    top: 8px;
+    left: -40px;
+    background-color: #ef4444;
+    color: white;
+    padding: 10px 50px;
+    transform: rotate(-45deg); /* Efeito de faixa de desconto */
+    font-weight: bold;
+    font-size: 20px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+}
+
+.lista-beneficios {
+    list-style: none;
+    padding: 0;
+}
+
+.lista-beneficios li {
+    margin-bottom: 10px;
+    padding-left: 25px;
+    position: relative;
+}
+
+.lista-beneficios li::before {
+    content: "✔️";
+    position: absolute;
+    left: 0;
+}
+
+.btn-reserva-aniv {
+    display: inline-block;
+    margin-top: 20px;
+    background-color: #f50b0b;
+    color: #ffffff;
+    padding: 15px 30px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 50px;
+    box-shadow: 0 4px 15px rgba(245, 158, 11, 0.4);
+}
+/* --- Ajustes para a Secção Aniversário com Sobreposição --- */
+
+#aniversariante {
+    margin-bottom: 100px; /* Aumentar margem inferior para dar espaço aos balões que sobem */
+    margin-top: 60px;
+}
+
+/* Contentor pai que permite que os balões "saiam" para fora (Aula 8) */
+.card-aniversario-wrapper {
+    position: relative; /* Pai para os balões absolute */
+    overflow: visible; /* IMPORTANTE: Permite que o conteúdo saia para fora */
+}
+
+/* O quadro escuro (Já existente, com pequeno ajuste) */
+.card-aniversario {
+    background: linear-gradient(135deg, #1f2937 0%, #111827 100%);
+    color: white;
+    padding: 50px 40px; /* Aumentar padding superior */
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+/* Imagem de Balões Decorativos (Aula 9: Position Absolute) */
+.baloes-decorativos {
+    position: absolute;
+    top: -60px; /* Sobe 60px para fora do quadro */
+    right: -40px; /* Sai 40px para a direita do quadro */
+    width: 250px; /* Largura da decoração */
+    z-index: 5; /* Fica por cima do quadro azul */
+    transform: rotate(5deg); /* Charme visual */
+    pointer-events: none; /* Garante que o clique passa através da imagem para os botões atrás */
+}
+
+/* Ajustes finos nos textos e imagem principal para não bater nos balões */
+.aniv-texto {
+    width: 55%;
+    padding-right: 30px;
+}
+
+.aniv-imagem {
+    width: 45%;
+    z-index: 1; /* Garante que a foto principal fica atrás dos balões dourados se eles se tocarem */
+}
+
+.aniv-imagem img {
+    width: 100%;
+    border-radius: 15px;
+    transform: rotate(2deg);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+/* Estilo da Seção Sobre */
+.sobre-texto {
+    width: 60%;
+}
+.sobre-imagem {
+    width: 40%;
+}
+
+/* verificar com joao */
+.sobre-imagem img {
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    margin: 1%;
+}
+
+/* Galeria Grid */
+.galeria-grid {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    width: 85%;
+    margin: 0 auto;
+}
+
+.galeria-item {
+    position: relative; /* Pai do Badge */
+    width: 30%;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.galeria-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover; /* Garante que a imagem preencha sem distorcer */
+}
+
+.galeria-item h3 {
+    margin: 15px 0;
+    color: #333;
+}
+
+/* Aula 9: Position Absolute */
+.badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #ef4444; /* Vermelho Vivo */
+    color: white;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: bold;
+    z-index: 1;
+}
+
+/* Aula 5: Tabela de Menu Clássica */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    margin-bottom: 50px;
+}
+
+th, td {
+    padding: 20px;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+}
+
+th {
+    background-color: #1f2937; /* Cinza Escuro */
+    color: white;
+    text-transform: uppercase;
+    font-size: 14px;
+}
+
+.categoria-td {
+    font-weight: bold;
+    background-color: #fafafa;
+    color: #b91c1c;
+    text-align: center;
+}
+
+tfoot td {
+    background-color: #fef2f2;
+    color: #b91c1c;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* Aula 4: Formulário de Encomenda */
+form {
+    background: white;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    width: 70%;
+    margin: 0 auto 50px auto;
+}
+
+.w-50 { width: 48%; }
+.form-group { justify-content: space-between; margin-bottom: 15px; }
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #555;
+}
+
+input[type="text"], input[type="tel"], select, textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box; /* Garante que o padding não aumente a largura */
+    margin-bottom: 15px;
+}
+
+fieldset {
+    border: 1px solid #eee;
+    border-radius: 4px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+legend {
+    font-weight: bold;
+    color: #b91c1c;
+    padding: 0 10px;
+}
+
+.extras {
+    gap: 10px;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.label-inline {
+    display: inline;
+    font-weight: normal;
+    margin-left: 5px;
+    margin-right: 15px;
+}
+
+input[type="checkbox"] {
+    margin: 0;
+}
+
+.btn-submit {
+    background-color: #059669; /* Verde Sucesso */
+    color: white;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+    width: 100%;
+}
+
+/* Aula 9: Position Fixed */
+.voltar-topo {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #b91c1c;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    z-index: 999;
+}
+
+.voltar-topo a {
+    color: white;
+    text-decoration: none;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+/* Footer Estilo */
+footer {
+    background-color: #1f2937;
+    color: white;
+    padding: 50px 0 20px 0;
+    margin-top: 50px;
+}
+
+footer .container {
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.footer-info, .footer-social {
+    width: 45%;
+}
+
+footer h3 {
+    color: #f59e0b;
+}
+
+footer a {
+    color: #ddd;
+    text-decoration: none;
+}
+
+.copyright {
+    text-align: center;
+    border-top: 1px solid #374151;
+    margin-top: 30px;
+    padding-top: 20px;
+    font-size: 12px;
+    color: #aaa;
+}
+/* Aula 9: Mantém o menu sempre visível enquanto faz scroll */
+.navbar {
+    position: sticky;
+    top: 0;
+    background-color: #b91c1c; /* Vermelho Pizza */
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 5%;
+    z-index: 1000; /* Garante que fica por cima de tudo */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.navbar ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+}
+
+.navbar ul li a {
+    color: white;
+    text-decoration: none;
+    margin-left: 20px;
+    font-weight: bold;
+    padding: 5px 10px;
+    border-radius: 4px;
+    transition: 0.3s; /* Suaviza a mudança de cor */
+}
+
+/* Aula 7: Destaque para a página atual */
+.navbar ul li a.active {
+    background-color: #f59e0b; /* Laranja */
+    color: white;
+}
+
+.navbar ul li a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+/* Estilos específicos para a página de Contactos */
+.info-contato {
+    background-color: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    width: 45%;
+}
+
+.info-contato h3 {
+    color: #b91c1c;
+    border-bottom: 2px solid #f59e0b;
+    display: inline-block;
+}
+
+.info-contato ul, .info-contato ol {
+    padding-left: 20px;
+    margin-top: 15px;
+}
+
+.mapa {
+    width: 50%;
+    text-align: center;
+}
+
+.mapa img {
+    width: 100%;
+    border-radius: 12px;
+    border: 5px solid white;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.redes-sociais {
+    text-align: center;
+    margin-top: 40px;
+    padding: 20px;
+    border-top: 1px solid #ddd;
+}
+
+.btn-social {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 10px;
+    background-color: #3b5998; /* Cor Facebook exemplo */
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.btn-social:first-of-type {
+    background-color: #e1306c; /* Cor Instagram exemplo */
+}
+/* Estilos para a Secção de Promoções (Aulas 8 e 9) */
+#promocoes {
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.promos-grid {
+    justify-content: center;
+    gap: 30px;
+    align-items: flex-start; /* Alinha o conteúdo ao topo */
+}
+
+.promo-item {
+    width: 45%;
+    background: white;
+    border-radius: 12px;
+    overflow: hidden; /* Garante que a imagem não saia dos cantos arredondados */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    border: 1px solid #ddd;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.promo-item img {
+    width: 100%;
+    height: 200px; /* Altura fixa para manter o alinhamento */
+    object-fit: cover; /* Recorta a imagem sem a distorcer */
+}
+
+.promo-content {
+    padding: 20px;
+}
+
+.promo-item h3 {
+    margin-top: 0;
+    color: #b91c1c; /* Vermelho Pizza */
+}
+
+.promo-item h3::after {
+    content: " 🤩"; /* Símbolo extra */
+}
+
+/* Aula 7: Uso de !important para forçar a cor e o estilo */
+.promo-crianca h3 {
+    color: #059669 !important; /* Verde Sucesso, forçado */
+}
+
+.desconto-crianca {
+    background-color: #fef2f2;
+    color: #b91c1c;
+    padding: 1px;
+    border-radius: 5px;
+    margin: 15px 0;
+}
+
+/* Aula 9: Position Absolute */
+.promo-crianca .badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #f59e0b; /* Laranja Destaque */
+    color: white;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: bold;
+    z-index: 1; /* Garante que fica por cima da imagem */
+}
+/* Estilos para o Menu Interativo */
+
+.card-pedido {
+    background: white;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.grid-inputs {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.form-pedido input[type="number"] {
+    width: 60px;
+    padding: 8px;
+    margin-left: 10px;
+}
+
+/* Sacola de Pedido */
+.sacola-pedido {
+    background: #1f2937;
+    color: white;
+    padding: 30px;
+    border-radius: 12px;
+    margin-top: 40px;
+}
+
+.btn-finalizar {
+    width: 100%;
+    padding: 15px;
+    background-color: #059669; /* Verde */
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+/* Botão Chamar Garçom (Aula 9: Fixed) */
+.btn-garcom {
+    position: fixed;
+    right: 20px;
+    top: 100px;
+    background-color: #f59e0b; /* Amarelo */
+    color: white;
+    border: none;
+    padding: 15px;
+    border-radius: 50px;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 1001;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+/* Aba de Espera */
+.status-espera {
+    margin-top: 50px;
+    padding: 20px;
+    border: 2px dashed #ccc;
+    text-align: center;
+    background-color: #f9fafb;
+}
+
+.barra-progresso {
+    width: 100%;
+    height: 10px;
+    background-color: #e5e7eb;
+    border-radius: 5px;
+    margin: 15px 0;
+    overflow: hidden;
+}
+
+.progresso-preenchendo {
+    width: 40%; /* Simulando progresso */
+    height: 100%;
+    background-color: #3b82f6; /* Azul */
+}
+
+.rodizio-box {
+    border-left: 5px solid #ef4444;
+}
+/* Estilo da Tabela de Resumo na Sacola */
+.tabela-resumo {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    background-color: rgba(255, 255, 255, 0.05); /* Fundo levemente claro no painel escuro */
+    color: white;
+}
+
+.tabela-resumo th, .tabela-resumo td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #374151;
+}
+
+.tabela-resumo th {
+    color: #f59e0b; /* Amarelo para os títulos da tabela */
+    font-size: 14px;
+}
+
+/* Botão de chamar garçom */
+
+/* Fundo que cobre o ecrã todo */
+.modal-sobreposicao {
+    display: none; /* Começa escondido */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8); /* Preto com transparência */
+    z-index: 9999; /* Garante que fica à frente de TUDO */
+    justify-content: center;
+    align-items: center;
+}
+
+/* O cartão branco com a mensagem */
+.cartao-aviso {
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    text-align: center;
+    border: 5px solid #b91c1c; /* Vermelho Pizza */
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+}
+
+.pizza-animada {
+    font-size: 60px;
+    margin-bottom: 10px;
+}
+
+.btn-entendido {
+    background: #059669; /* Verde */
+    color: white;
+    border: none;
+    padding: 10px 30px;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 20px;
+}/* Aula 7: Destaque para a linha do Total */
+.linha-total td {
+    font-size: 20px;
+    font-weight: bold;
+    color: #10b981; /* Verde esmeralda para o preço final */
+    border-top: 2px solid #10b981;
+    padding-top: 20px;
+}
+
+.pagamento h4 {
+    margin-top: 30px;
+    color: #f59e0b;
+}
+
+.opcoes-pagamento {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.opcoes-pagamento label {
+    background: #f4f5f7;
+    padding: 10px 15px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.3s;
+    font-weight: normal;
+}
+
+/* Quando o rádio está selecionado, o label muda (Truque de CSS avançado) */
+.opcoes-pagamento input[type="radio"]:checked + label {
+    background-color: #f59e0b;
+    color: #1f2937;
+    font-weight: bold;
+}
+
+/* Esconder o círculo do rádio para um look mais limpo */
+.opcoes-pagamento input[type="radio"] {
+    display: none;
+}
+
+/* Estilos para o Formulário de Reservas */
+.form-complexo {
+    max-width: 800px;
+    margin: 30px auto;
+    background: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+}
+
+.form-complexo fieldset {
+    border: 1px solid #e5e7eb;
+    padding: 20px;
+    margin-bottom: 25px;
+    border-radius: 8px;
+}
+
+.form-complexo legend {
+    font-weight: bold;
+    font-size: 18px;
+    color: #b91c1c;
+    padding: 0 10px;
+}
+
+.radio-group, .checkbox-group {
+    margin: 15px 0;
+    padding: 10px;
+    background: #f9fafb;
+    border-radius: 6px;
+}
+
+.label-inline {
+    display: inline-block;
+    margin-right: 20px;
+    font-weight: normal;
+    cursor: pointer;
+}
+
+.w-50 small {
+    display: block;
+    color: #6b7280;
+    font-size: 12px;
+    margin-top: -10px;
+    margin-bottom: 15px;
+}
+
+.termos {
+    margin: 20px 0;
+    text-align: center;
+    font-size: 14px;
+    color: #374151;
+}
+
+.btn-reserva-final {
+    width: 100%;
+    background-color: #b91c1c;
+    color: white;
+    padding: 18px;
+    border: none;
+    border-radius: 8px;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.btn-reserva-final:hover {
+    background-color: #991b1b;
+}
+
+.reserva-header {
+    text-align: center;
+    margin-bottom: 40px;
+}

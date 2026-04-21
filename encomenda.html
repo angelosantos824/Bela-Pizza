@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <title>Bella Pizza | Encomendar</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="navbar">
+    <div class="logo">
+        <h1>Bella Pizza 🍕</h1>
+        <span>Desde 1998</span>
+    </div>
+    <nav role="navigation">
+        <ul>
+            <li><a href="home.html">Home</a></li>
+            <li><a href="historia.html">História</a></li>
+            <li><a href="menu.html">Cardápio</a></li> <li><a href="pedidomesa.html" class="active">Fazer Pedido</a></li> <li><a href="reservas.html">Reservas</a></li>
+            <li><a href="encomenda.html">Encomendar</a></li>
+            <li><a href="reservas.html">Reservas</a></li>
+            <li><a href="contatos.html">Contactos</a></li>
+        </ul>
+    </nav>
+</header>
+    <header class="navbar"> </header>
+
+        <main class="container">
+        <h3>Peça a sua Pizza</h3>
+                <section id="encomenda">
+            <div class="container">
+                <h3>Faça a sua Encomenda</h3>
+                <form action="#" method="POST">
+                    <div class="form-group flex">
+                        <div class="w-50">
+                            <label for="nome">Nome Completo:</label>
+                            <input type="text" id="nome" name="nome" placeholder="Digite o seu nome" required minlength="3">
+                        </div>
+                        <div class="w-50">
+                            <label for="telefone">Telefone:</label>
+                            <input type="tel" id="telefone" name="telefone" placeholder="9xx xxx xxx" required pattern="[0-9]{9}">
+                        </div>
+                    </div>
+
+                    <label for="endereco">Endereço de Entrega:</label>
+                    <input type="text" id="endereco" name="endereco" placeholder="Rua, Número, Andar..." required>
+
+                    <fieldset>
+                        <legend>O Seu Pedido:</legend>
+                        <label for="pizza_select">Escolha a Pizza:</label>
+                        <select id="pizza_select" name="pizza_pedido" required>
+                            <option value="" disabled selected>Selecione uma opção</option>
+                            <option value="margherita">Margherita</option>
+                            <option value="pepperoni">Pepperoni Premium</option>
+                            <option value="vegetariana">Vegetariana Deluxe</option>
+                        </select>
+                        
+                        <div class="flex extras">
+                            <label>Extras:</label>
+                            <input type="checkbox" id="extra_queijo" name="extra" value="queijo">
+                            <label for="extra_queijo" class="label-inline">Queijo</label>
+                            
+                            <input type="checkbox" id="extra_bacon" name="extra" value="bacon">
+                            <label for="extra_bacon" class="label-inline">Bacon</label>
+                        </div>
+                    </fieldset>
+
+                    <label for="obs">Observações:</label>
+                    <textarea id="obs" name="obs" rows="3" placeholder="Ex: Sem cebola, campainha avariada..."></textarea>
+
+                    <button type="submit" class="btn-submit">Finalizar Pedido (&euro;)</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+        <footer id="contacto">
+        <div class="container flex">
+            <div class="footer-info">
+                <h3>Bella Pizza Aveiro</h3>
+                <p>Rua dos Mercadores, 123</p>
+                <p>3800-123 Aveiro</p>
+            </div>
+            <div class="footer-social">
+                <h3>Siga-nos</h3>
+                <a href="#">Facebook</a> | <a href="#">Instagram</a>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2026 Bella Pizza - Todos os direitos reservados # Projeto Final — UC00604 Frontend.</p>
+        </div>
+    </footer>
+
+    <div class="voltar-topo">
+        <a href="#">↑</a>
+    </div>
+
+</body>
+</html>
