@@ -605,7 +605,10 @@ footer a {
     left: 15%;
     right: 40%;
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 83923d0 (Atualização)
 .mapa img {
     width: 100%;
     border-radius: 12px;
@@ -964,4 +967,19 @@ footer a {
 .reserva-header {
     text-align: center;
     margin-bottom: 40px;
+<<<<<<< HEAD
 }
+/* Rederização para mobile (Aula 7: Media Queries) */
+/* Quando a tela for menor que 600px (telemóveis) */
+@media (max-width: 600px) {
+  body {
+    font-size: 14px;
+  }
+  
+  /* Se tiver uma imagem grande, ela não "vaza" da tela */
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+}
+
