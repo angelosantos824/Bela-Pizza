@@ -596,6 +596,15 @@ footer a {
     width: 50%;
     text-align: center;
 }
+.mapa-moldura {
+    width: 100vh; /* Largura total da tela */
+    height: 600px;
+    margin-top: 1px;
+    margin-left: calc(-50vw + 50%); /* Centraliza mesmo dentro de containers limitados */
+    position: relative;
+    left: 15%;
+    right: 40%;
+}
 
 .mapa img {
     width: 100%;
