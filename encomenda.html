@@ -91,6 +91,36 @@
             <label for="enc-obs">Observações Gerais:</label>
             <textarea id="enc-obs" rows="2" placeholder="Ex: Sem cebola, troco para 50€..."></textarea>
         </div>
+        <div class="form-group" style="background: #fff3e0; padding: 15px; border-radius: 8px; margin-top: 15px;">
+    <label><strong>Forma de Pagamento na Entrega:</strong></label>
+    <div style="margin-top: 10px;">
+        <input type="radio" name="pagamento-enc" value="MB WAY" id="enc-mbway" checked> 
+        <label for="enc-mbway">MB WAY</label><br>
+        
+        <input type="radio" name="pagamento-enc" value="Dinheiro" id="enc-dinheiro"> 
+        <label for="enc-dinheiro">Dinheiro</label><br>
+        
+        <input type="radio" name="pagamento-enc" value="Cartão" id="enc-cartao"> 
+        <label for="enc-cartao">Cartão (Terminal Móvel)</label>
+    </div>
+</div>
+
+<div style="text-align: right; margin: 20px 0; font-size: 1.2rem;">
+    <strong>Total da Bag: <span id="total-bag" style="color: #27ae60;">0,00</span>€</strong>
+</div>
+
+<button type="button" class="btn-finalizar" onclick="enviarBagWhatsApp()" style="width: 100%; background: #27ae60; color: white; padding: 15px; border: none; border-radius: 5px; font-weight: bold; cursor: pointer;">
+    ✅ Finalizar e Enviar para o Pizzaiolo
+</button>
+
+<div id="modal-confirmacao" style="display:none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 2000; justify-content: center; align-items: center;">
+    <div style="background: white; padding: 40px; border-radius: 20px; text-align: center; border: 4px solid #e67e22;">
+        <div style="font-size: 60px;">👨‍🍳</div>
+        <h2 style="color: #e67e22;">Pedido Confirmado!</h2>
+        <p style="font-size: 18px; margin: 20px 0;">O seu pedido já está na <strong>mesa do pizzaiolo</strong> e sairá em breve para entrega!</p>
+        <button onclick="window.location.href='index.html'" style="background: #27ae60; color: white; border: none; padding: 10px 30px; border-radius: 5px; cursor: pointer; font-weight: bold;">Voltar ao Início</button>
+    </div>
+</div>
 
         <button type="button" class="btn-finalizar" onclick="enviarBagWhatsApp()" style="width: 100%; background: #27ae60; color: white; padding: 15px; border: none; border-radius: 5px; font-weight: bold; cursor: pointer;">
             ✅ Finalizar Encomenda via WhatsApp

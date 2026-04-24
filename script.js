@@ -230,3 +230,77 @@ function enviarBagWhatsApp() {
     // Abrir WhatsApp
     window.open(`https://wa.me/${numeroPizzaria}?text=${mensagemCodificada}`, '_blank');
 }
+let itensBag = [];
+let totalValor = 0;
+
+// Tabela de preços para o cálculo
+const precos = {
+    "Margherita": 12.50, "Pepperoni Premium": 14.90, "Pepperoni Lovers": 16.90,
+    "Hawaiian Premium": 15.90, "BBQ Chicken": 14.90, "Chicken Premium": 16.90,
+    "Supreme": 17.90, "Supreme Premium": 18.90, "P-Zone Premium": 14.90,
+    "Vegetariana Deluxe": 15.50, "Vinho da Casa (Tinto)": 18.00,
+    "Água Luso (500ml)": 1.50, "Coca-Cola": 1.80, "Fanta Laranja": 1.80,
+    "Guaraná Antárctica": 1.80, "Sprite": 1.80, "Fanta Uva": 1.80,
+    "Pepsi": 1.80, "Tiramisù Clássico": 6.50
+};
+
+function adicionarABag() {
+    const itemElemento = document.getElementById('enc-item');
+    const itemNome = itemElemento.value;
+    const qtd = parseInt(document.getElementById('enc-qtd').value);
+    const listaUI = document.getElementById('lista-bag');
+    const areaBag = document.getElementById('area-bag');
+
+    if (!itemNome) {
+        alert("Selecione um produto!");
+        return;
+    }
+
+    // Calcula valor e adiciona à Bag
+    itensBag.push(`${qtd}x ${itemNome}`);
+    totalValor += (precos[itemNome] * qtd);
+
+    // Atualiza Interface
+    listaUI.innerHTML = "";
+    itensBag.forEach(p => {
+        let li = document.createElement('li');
+        li.innerHTML = `💼 ${p}`;
+        listaUI.appendChild(li);
+    });
+
+    document.getElementById('total-bag').innerText = totalValor.toFixed(2).replace('.', ',');
+    areaBag.style.display = 'block';
+    itemElemento.value = "";
+}
+
+function enviarBagWhatsApp() {
+    const nome = document.getElementById('enc-nome').value;
+    const endereco = document.getElementById('enc-endereco').value;
+    const pagamento = document.querySelector('input[name="pagamento-enc"]:checked').value;
+    const obs = document.getElementById('enc-obs').value;
+
+    if (!nome || !endereco || itensBag.length === 0) {
+        alert("Preencha todos os dados e adicione itens à bag!");
+        return;
+    }
+
+    let mensagemRaw = `*📦 ENCOMENDA DOMICÍLIO - BELLA PIZZA* \n\n` +
+                      `👤 *Cliente:* ${nome}\n` +
+                      `🏠 *Endereço:* ${endereco}\n` +
+                      `💳 *Pagamento:* ${pagamento}\n` +
+                      `💰 *Total:* ${totalValor.toFixed(2)}€\n` +
+                      `---------------------------\n` +
+                      `📋 *ITENS:* \n• ${itensBag.join('\n• ')}\n` +
+                      `---------------------------\n` +
+                      `💬 *Obs:* ${obs || "Nenhuma"}`;
+
+    const link = `https://wa.me/351924116588?text=${encodeURIComponent(mensagemRaw).replace(/%20/g, '%20')}`;
+    
+    // 1. Abre o WhatsApp
+    window.open(link, '_blank');
+
+    // 2. Mostra a confirmação de que o pedido foi para a mesa do pizzaiolo
+    setTimeout(() => {
+        document.getElementById('modal-confirmacao').style.display = 'flex';
+    }, 1000);
+}
