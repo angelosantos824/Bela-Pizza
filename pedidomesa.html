@@ -3,72 +3,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bella Pizza | Menu Interativo</title>
+    <title>Bella Pizza | Pedido na Mesa</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body id="pagina-pedido">
 
     <header class="navbar">
         <div class="logo"><h1>Bella Pizza 🍕</h1></div>
         <nav>
             <ul>
                 <li><a href="index.html">Home</a></li>
-               <li><a href="menu.html">Cardápio</a></li> <li><a href="pedidomesa.html" class="active">Fazer Pedido</a></li>
+                <li><a href="menu.html">Cardápio</a></li> 
+                <li><a href="pedidomesa.html" class="active">Fazer Pedido</a></li>
                 <li><a href="reservas.html">Reservas</a></li>
                 <li><a href="contatos.html">Contactos</a></li>
             </ul>
         </nav>
     </header>
 
-<button type="button" class="btn-garcom" onclick="abrirMensagem()">🔔 Chamar Garçom</button>
+    <main class="container">
+        <div style="text-align: center; margin: 20px 0;">
+            <button type="button" class="btn-garcom" onclick="abrirMensagem()">🔔 Chamar Garçom</button>
+        </div>
 
-<div id="caixa-aviso" class="modal-sobreposicao">
-    <div class="cartao-aviso">
-        <div class="pizza-animada">🍕</div>
-        <h2 id="titulo-aviso">Mamma Mia!</h2>
-        <p id="texto-engracado"></p>
-        <button onclick="fecharMensagem()" class="btn-entendido">Entendido!</button>
-    </div>
-</div>
+        <div id="caixa-aviso" class="modal-sobreposicao" style="display:none;">
+            <div class="cartao-aviso">
+                <div class="pizza-animada">🍕</div>
+                <h2 id="titulo-aviso">Mamma Mia!</h2>
+                <p id="texto-engracado"></p>
+                <button onclick="fecharMensagem()" class="btn-entendido">Entendido!</button>
+            </div>
+        </div>
 
-<script>
-    function abrirMensagem() {
-        const piadas = [
-            "O Luigi já calçou as chuteiras e está a correr para aqui! 🏃‍♂️",
-            "Atenção: Garçom detetado a 50 metros da sua mesa! 🚨",
-            "O nosso garçom é como o queijo da pizza: está em todo o lado! 🧀",
-            "Calma! Ele só foi buscar um vinho e já aparece! 🍷"
-        ];
-        
-        const sorteio = piadas[Math.floor(Math.random() * piadas.length)];
-        
-        document.getElementById('texto-engracado').innerText = sorteio;
-        document.getElementById('caixa-aviso').style.display = 'flex';
-    }
+        <h3 style="text-align: center;">Faça o seu Pedido na Mesa</h3>
 
-    function fecharMensagem() {
-        document.getElementById('caixa-aviso').style.display = 'none';
-    }
-</script>        
-
-        <h3>Faça o seu Pedido na Mesa</h3>
-
-        <form action="#" method="POST" class="form-pedido">
+        <form id="formPedido" class="form-pedido">
             
             <section class="card-pedido">
                 <h3>1. Localização</h3>
                 <label for="mesa">Número da Mesa:</label>
                 <select id="mesa" name="mesa" required>
                     <option value="" disabled selected>Selecione a sua mesa (1 a 12)</option>
-                    <option value="1">Mesa 01</option>
-                    <option value="2">Mesa 02</option>
-                    <option value="3">Mesa 03</option>
-                    <option value="4">Mesa 04</option>
-                    <option value="5">Mesa 05</option>
-                    <option value="6">Mesa 06</option>
-                    <option value="7">Mesa 07</option>
-                    <option value="8">Mesa 08</option>
-                    <option value="9">Mesa 09</option>
+                    <option value="01">Mesa 01</option>
+                    <option value="02">Mesa 02</option>
+                    <option value="03">Mesa 03</option>
+                    <option value="04">Mesa 04</option>
+                    <option value="05">Mesa 05</option>
+                    <option value="06">Mesa 06</option>
+                    <option value="07">Mesa 07</option>
+                    <option value="08">Mesa 08</option>
+                    <option value="09">Mesa 09</option>
                     <option value="10">Mesa 10</option>
                     <option value="11">Mesa 11</option>
                     <option value="12">Mesa 12</option>
@@ -76,40 +60,21 @@
             </section>
 
             <section class="card-pedido">
-                <h3>2. Comida</h3>
+                <h3>2. Escolha a sua Pizza</h3>
                 <div class="grid-inputs">
                     <div>
-                        <label for="pizza">Pizza:</label>
-                        <select id="pizza" name="pizza">
-                            <option value="nenhuma">Nenhuma</option>
-                            <option value="margherita">Margherita</option>
-                            <option value="pepperoni">Pepperoni</option>
-                            <option value="4queijos">4 Queijos</option>
-                        </select>
                         <label for="pizza">Pizza (32cm):</label>
-<select id="pizza" name="pizza">
-    <option value="nenhuma">Nenhuma</option>
-    <option value="margherita">Margherita - €12,50</option>
-    <option value="pepperoni_premium">Pepperoni Premium - €14,90</option>
-    <option value="pepperoni_lovers">Pepperoni Lovers - €16,90</option>
-    <option value="hawaiian_premium">Hawaiian Premium - €15,90</option>
-    <option value="bbq_chicken">BBQ Chicken - €14,90</option>
-    <option value="chicken_premium">Chicken Premium - €16,90</option>
-    <option value="supreme">Supreme - €17,90</option>
-    <option value="supreme_premium">Supreme Premium - €18,90</option>
-    <option value="pzone_premium">P-Zone Premium - €14,90</option>
-    <option value="vegetariana_deluxe">Vegetariana Deluxe - €15,50</option>
-</select>
-                        <input type="number" name="qtd_pizza" min="0" placeholder="Qtd">
+                        <select id="pizza" name="pizza">
+                            <option value="Nenhuma">Nenhuma</option>
+                            <option value="Margherita">Margherita - €12,50</option>
+                            <option value="Pepperoni Premium">Pepperoni Premium - €14,90</option>
+                            <option value="BBQ Chicken">BBQ Chicken - €14,90</option>
+                            <option value="Vegetariana Deluxe">Vegetariana Deluxe - €15,50</option>
+                        </select>
                     </div>
                     <div>
-                        <label for="massa">Massa:</label>
-                        <select id="massa" name="massa">
-                            <option value="nenhuma">Nenhuma</option>
-                            <option value="lasanha">Lasanha</option>
-                            <option value="carbonara">Esparguete Carbonara</option>
-                        </select>
-                        <input type="number" name="qtd_massa" min="0" placeholder="Qtd">
+                        <label for="qtd_pizza">Quantidade:</label>
+                        <input type="number" id="qtd_pizza" name="qtd_pizza" min="1" value="1">
                     </div>
                 </div>
             </section>
@@ -117,108 +82,40 @@
             <section class="card-pedido">
                 <h3>3. Bebidas</h3>
                 <div class="grid-inputs">
-                    <label>Refrigerante: <input type="number" name="refri" min="0" value="0"></label>
-                    <label>Suco Natural: <input type="number" name="suco" min="0" value="0"></label>
-                    <label>Água: <input type="number" name="agua" min="0" value="0"></label>
-                </div>
-            </section>
-    <h3>3. Bebidas</h3>
-    <div class="grid-inputs">
-        <div>
-            <label for="bebida">Escolha a Bebida:</label>
-            <select id="bebida" name="bebida">
-                <option value="nenhuma">Nenhuma</option>
-                <optgroup label="Vinhos">
-                    <option value="vinho_casa">Vinho da Casa (Tinto) 750ml - €18,00</option>
-                </optgroup>
-                <optgroup label="Agua">
-                        <option value="AGua fresca">Água Fresca 500ml - €1,50</option>
-                    </optgroup>
-                <optgroup label="Refrigerantes (Lata 350ml) - €1,80">
-                    <option value="coca_cola">Coca-Cola</option>
-                    <option value="fanta_laranja">Fanta Laranja</option>
-                    <option value="guarana">Guaraná Antártica (Brasil)</option>
-                    <option value="sprite">Sprite</option>
-                    <option value="fanta_uva">Fanta Uva</option>
-                    <option value="pepsi">Pepsi</option>
-                </optgroup>
-            </select>
-        </div>
-        <div>
-            <label for="qtd_bebida">Quantidade:</label>
-            <input type="number" id="qtd_bebida" name="qtd_bebida" min="0" value="0" placeholder="Qtd">
-        </div>
-    </div>
-</section>
-            <section class="card-pedido rodizio-box">
-                <h3>4. Rodízio Especial</h3>
-                <div class="flex">
-                    <label>Adultos: <input type="number" name="rodizio_adulto" min="0"></label>
-                    <label>Crianças (< 8 anos): <input type="number" name="rodizio_kids" min="0"></label>
+                    <div>
+                        <label for="bebida">Escolha a Bebida:</label>
+                        <select id="bebida" name="bebida">
+                            <option value="Nenhuma">Nenhuma</option>
+                            <option value="Agua Fresca">Água Fresca - €1,50</option>
+                            <option value="Coca-Cola">Coca-Cola - €1,80</option>
+                            <option value="Guarana">Guaraná - €1,80</option>
+                            <option value="Vinho da Casa">Vinho da Casa - €18,00</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="qtd_bebida">Quantidade:</label>
+                        <input type="number" id="qtd_bebida" name="qtd_bebida" min="0" value="0">
+                    </div>
                 </div>
             </section>
 
             <section class="sacola-pedido">
-    <h2>🛍️ Resumo do Pedido</h2>
-    
-    <table class="tabela-resumo">
-        <thead>
-            <tr>
-                <th>Item</th>
-                <th>Qtd</th>
-                <th>Preço Unit.</th>
-                <th>Subtotal</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>Pizza Margherita (Grande)</td>
-                <td>1</td>
-                <td>&euro;12,50</td>
-                <td>&euro;12,50</td>
-            </tr>
-            <tr>
-                <td>Rodízio Adulto</td>
-                <td>2</td>
-                <td>&euro;15,00</td>
-                <td>&euro;30,00</td>
-            </tr>
-            <tr>
-                <td>Rodízio Criança (< 8 anos)</td>
-                <td>1</td>
-                <td>&euro;7,50</td>
-                <td>&euro;7,50</td>
-            </tr>
-            <tr>
-                <td>Refrigerante (Lata)</td>
-                <td>3</td>
-                <td>&euro;2,00</td>
-                <td>&euro;6,00</td>
-            </tr>
-        </tbody>
-        <tfoot>
-            <tr class="linha-total">
-                <td colspan="3">TOTAL A PAGAR</td>
-                <td>&euro;56,00</td>
-            </tr>
-        </tfoot>
-    </table>
+                <h3>💳 Pagamento</h3>
+                <div class="opcoes-pagamento">
+                    <input type="radio" id="mbway" name="pagamento" value="MB WAY" checked>
+                    <label for="mbway">📲 MB WAY</label>
+                    
+                    <input type="radio" id="cartao" name="pagamento" value="Cartão">
+                    <label for="cartao">💳 Cartão</label>
+                    
+                    <input type="radio" id="dinheiro" name="pagamento" value="Dinheiro">
+                    <label for="dinheiro">💵 Dinheiro</label>
+                </div>
 
-    <div class="pagamento">
-        <h4>Escolha o Método de Pagamento:</h4>
-        <div class="opcoes-pagamento">
-            <input type="radio" id="mbway" name="pagamento" value="mbway" required>
-            <label for="mbway">📲 MB WAY</label>
-            
-            <input type="radio" id="cartao" name="pagamento" value="cartao">
-            <label for="cartao">💳 Cartão</label>
-            
-            <input type="radio" id="dinheiro" name="pagamento" value="dinheiro">
-            <label for="dinheiro">💵 Dinheiro</label>
-        </div>
-    </div>
-
-<button type="button" id="btn-whatsapp" class="btn-finalizar" onclick="enviarParaWhatsApp()">Confirmar e Enviar via WhatsApp 📱</button></section>
+                <button type="button" class="btn-finalizar" onclick="enviarParaWhatsApp()">
+                    🚀 Confirmar e Enviar para a Cozinha
+                </button>
+            </section>
         </form>
 
         <section class="status-espera">
@@ -226,7 +123,7 @@
             <div class="barra-progresso">
                 <div class="progresso-preenchendo"></div>
             </div>
-            <p>O seu pedido está na cozinha. Tempo estimado: <strong>20 min</strong></p>
+            <p>Após enviar pelo WhatsApp, o tempo estimado é de <strong>20 min</strong>.</p>
         </section>
     </main>
 
@@ -234,31 +131,19 @@
         <div class="container flex">
             <div class="footer-info">
                 <h3>Bella Pizza Aveiro</h3>
-                <p>Rua dos Mercadores, 123</p>
                 <p>Rua da Mozzarella, 45, Aveiro</p>
                 <p>3800-123 Aveiro</p>
             </div>
             <div class="footer-social">
                 <h3>Siga-nos</h3>
-                <a href="https://www.facebook.com">Facebook</a> | <a href="https://www.instagram.com">Instagram</a>
+                <a href="#">Facebook</a> | <a href="#">Instagram</a>
             </div>
         </div>
         <div class="copyright">
-            <p>&copy; 2026 Bella Pizza - Todos os direitos reservados # Projeto Final — UC00604 Frontend.</p>
+            <p>&copy; 2026 Bella Pizza - Formador João Pedro</p>
         </div>
     </footer>
 
-                <a href="https://www.facebook.com">Facebook</a> | <a href="https://www.instagram.com">Instagram</a>
-            </div>
-        </div>
-        <div class="copyright">
-            <p>&copy; 2026 Bella Pizza - Todos os direitos reservados # Projeto Final — UC00604 Frontend. - Formador João Pedro</p>
-        </div>
-    </footer>
-    <div class="voltar-topo">
-        <a href="#">↑</a>
-    </div>
-
+    <script src="script.js"></script>
 </body>
-</html>
 </html>
