@@ -23,39 +23,29 @@
         </nav>
     </header>
 
-    <main class="container">
-        <section class="card-pedido">
-            <h2 style="text-align: center; color: #e67e22;">🚚 Encomenda ao Domicílio</h2>
-            <p style="text-align: center; margin-bottom: 20px;">Preencha os dados para entrega em Aveiro</p>
+<main class="container">
+    <section class="card-pedido">
+        <h2 style="text-align: center; color: #e67e22;">🚚 Encomenda (Bag de Viagem)</h2>
 
-            <form id="formEncomenda">
-                <div class="form-group">
-                    <label for="enc-nome">Nome Completo:</label>
-                    <input type="text" id="enc-nome" placeholder="Seu nome" required>
-                </div>
+        <div class="form-group">
+            <label for="enc-nome">Nome Completo:</label>
+            <input type="text" id="enc-nome" placeholder="Seu nome" required>
+        </div>
+        <div class="form-group">
+            <label for="enc-endereco">Endereço de Entrega:</label>
+            <input type="text" id="enc-endereco" placeholder="Rua, nº, andar..." required>
+        </div>
 
-                <div class="linha-pedido">
-                    <div class="coluna-item">
-                        <label for="enc-telefone">Telefone:</label>
-                        <input type="tel" id="enc-telefone" placeholder="9xxxxxxxx" required>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label for="enc-endereco">Endereço Completo:</label>
-                    <input type="text" id="enc-endereco" placeholder="Rua, Número, Código Postal" required>
-                </div>
-
-                <hr>
+        <hr>
 
 <div class="linha-pedido">
     <div class="coluna-item">
-        <label>Escolha o Item (Pizza ou Bebida):</label>
+        <label>Escolha o Item para a Bag:</label>
         <select id="enc-item">
             <option value="" disabled selected>Selecione um produto...</option>
             
             <optgroup label="Pizzas (32cm)">
-                <option value="Pizza Margherita">Margherita - €12,50</option>
+                <option value="Margherita">Margherita - €12,50</option>
                 <option value="Pepperoni Premium">Pepperoni Premium - €14,90</option>
                 <option value="Pepperoni Lovers">Pepperoni Lovers - €16,90</option>
                 <option value="Hawaiian Premium">Hawaiian Premium - €15,90</option>
@@ -68,14 +58,18 @@
             </optgroup>
 
             <optgroup label="Bebidas">
-                <option value="Vinho da Casa">Vinho da Casa - €18,00</option>
-                <option value="Água Luso">Água Luso - €1,50</option>
+                <option value="Vinho da Casa (Tinto)">Vinho da Casa (Tinto) - €18,00</option>
+                <option value="Água Luso (500ml)">Água Luso (500ml) - €1,50</option>
                 <option value="Coca-Cola">Coca-Cola - €1,80</option>
                 <option value="Fanta Laranja">Fanta Laranja - €1,80</option>
                 <option value="Guaraná Antárctica">Guaraná Antárctica - €1,80</option>
                 <option value="Sprite">Sprite - €1,80</option>
                 <option value="Fanta Uva">Fanta Uva - €1,80</option>
                 <option value="Pepsi">Pepsi - €1,80</option>
+            </optgroup>
+
+            <optgroup label="Sobremesas">
+                <option value="Tiramisù Clássico">Tiramisù Clássico - €6,50</option>
             </optgroup>
         </select>
     </div>
@@ -84,26 +78,25 @@
         <input type="number" id="enc-qtd" min="1" value="1">
     </div>
 </div>
-                <div class="form-group">
-                    <label>Extras:</label>
-                    <div style="display: flex; gap: 10px; margin-top: 5px;">
-                        <input type="checkbox" id="ex-queijo" value="Extra Queijo"> <label for="ex-queijo">Queijo</label>
-                        <input type="checkbox" id="ex-bacon" value="Extra Bacon"> <label for="ex-bacon">Bacon</label>
-                    </div>
-                </div>
+        <button type="button" class="btn-secundario" onclick="adicionarABag()" style="width: 100%; background: #e67e22; color: white; border: none; padding: 10px; border-radius: 5px; cursor: pointer; margin-bottom: 20px;">
+            💼 Adicionar à Bag
+        </button>
 
-                <div class="form-group">
-                    <label for="enc-obs">Observações:</label>
-                    <textarea id="enc-obs" rows="2" placeholder="Ex: Sem cebola, campainha avariada..."></textarea>
-                </div>
+        <div id="area-bag" style="display:none; background: #f9f9f9; padding: 15px; border-radius: 8px; border: 1px dashed #e67e22; margin-bottom: 20px;">
+            <h4 style="margin-top: 0;">💼 Itens na sua Bag:</h4>
+            <ul id="lista-bag" style="list-style: none; padding: 0;"></ul>
+        </div>
 
-                <button type="button" class="btn-finalizar" onclick="enviarEncomendaWhatsApp()" style="width: 100%; background: #27ae60;">
-                    🚀 Finalizar e Enviar via WhatsApp
-                </button>
-            </form>
-        </section>
-    </main>
+        <div class="form-group">
+            <label for="enc-obs">Observações Gerais:</label>
+            <textarea id="enc-obs" rows="2" placeholder="Ex: Sem cebola, troco para 50€..."></textarea>
+        </div>
 
+        <button type="button" class="btn-finalizar" onclick="enviarBagWhatsApp()" style="width: 100%; background: #27ae60; color: white; padding: 15px; border: none; border-radius: 5px; font-weight: bold; cursor: pointer;">
+            ✅ Finalizar Encomenda via WhatsApp
+        </button>
+    </section>
+</main>
     <footer id="contacto">
         <div class="copyright">
             <p>&copy; 2026 Bella Pizza - Formador João Pedro</p>

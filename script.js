@@ -152,3 +152,81 @@ function enviarWhatsAppFinal() {
     // 5. Abrir em nova aba
     window.open(linkFinal, '_blank');
 }
+// Variável para acumular os itens da encomenda (Bag)
+let itensBag = [];
+
+/**
+ * Adiciona o item selecionado à lista visual e ao array interno
+ */
+function adicionarABag() {
+    const itemElemento = document.getElementById('enc-item');
+    const itemNome = itemElemento.value;
+    const qtd = document.getElementById('enc-qtd').value;
+    const listaUI = document.getElementById('lista-bag');
+    const areaBag = document.getElementById('area-bag');
+
+    // Validação: não permite adicionar se não houver item selecionado
+    if (!itemNome || itemNome === "") {
+        alert("Por favor, selecione um produto do cardápio!");
+        return;
+    }
+
+    // Adiciona à lista: "1x Pizza Margherita"
+    itensBag.push(`${qtd}x ${itemNome}`);
+
+    // Limpa a lista na tela e reconstrói para evitar duplicados visuais
+    listaUI.innerHTML = "";
+    itensBag.forEach((produto, index) => {
+        let li = document.createElement('li');
+        li.innerHTML = `<span style="color: #e67e22;">💼</span> ${produto}`;
+        li.style.padding = "8px 0";
+        li.style.borderBottom = "1px solid #eee";
+        listaUI.appendChild(li);
+    });
+
+    // Mostra a secção da Bag se estiver escondida
+    areaBag.style.display = 'block';
+
+    // Reset dos campos para a próxima escolha
+    itemElemento.value = "";
+    document.getElementById('enc-qtd').value = 1;
+}
+
+/**
+ * Formata e envia todos os dados da Bag para o WhatsApp
+ */
+function enviarBagWhatsApp() {
+    const nome = document.getElementById('enc-nome').value;
+    const endereco = document.getElementById('enc-endereco').value;
+    const obs = document.getElementById('enc-obs').value;
+
+    // Verificação de campos obrigatórios
+    if (!nome || !endereco) {
+        alert("Precisamos do seu nome e endereço para a entrega!");
+        return;
+    }
+
+    if (itensBag.length === 0) {
+        alert("A sua Bag está vazia! Adicione pizzas ou bebidas antes de enviar.");
+        return;
+    }
+
+    // Montagem da Mensagem Profissional
+    let mensagemRaw = `*📦 NOVA ENCOMENDA - BELLA PIZZA* \n\n` +
+                      `👤 *Cliente:* ${nome}\n` +
+                      `🏠 *Endereço:* ${endereco}\n` +
+                      `---------------------------\n` +
+                      `📋 *ITENS NA BAG:* \n` +
+                      `• ${itensBag.join('\n• ')}\n` +
+                      `---------------------------\n` +
+                      `💬 *Notas:* ${obs || "Sem observações"}\n\n` +
+                      `_Pedido gerado pelo Menu Digital_`;
+
+    const numeroPizzaria = "351924116588";
+    
+    // Substituição de espaços por %20 para garantir link seguro
+    const mensagemCodificada = encodeURIComponent(mensagemRaw).replace(/%20/g, '%20');
+    
+    // Abrir WhatsApp
+    window.open(`https://wa.me/${numeroPizzaria}?text=${mensagemCodificada}`, '_blank');
+}
