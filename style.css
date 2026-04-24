@@ -598,8 +598,8 @@ footer a {
 }
 .mapa-moldura {
     width: 100vh; /* Largura total da tela */
-    height: 600px;
-    margin-top: 1px;
+    height: 350px;
+    margin-top: -300px;
     margin-left: calc(-50vw + 50%); /* Centraliza mesmo dentro de containers limitados */
     position: relative;
     left: 15%;
@@ -607,7 +607,7 @@ footer a {
 }
 .mapa img {
     width: 100%;
-    border-radius: 12px;
+    border-radius: 25px;
     border: 5px solid white;
     box-shadow: 0 4px 15px rgba(0,0,0,0.1);
 }
