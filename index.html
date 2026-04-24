@@ -3,111 +3,108 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bella Pizza | A Verdadeira Pizza Forno a Lenha</title>
+    <title>Bella Pizza | A Melhor de Aveiro</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body id="home">
     <header class="navbar">
         <div class="logo">
             <a href="index.html" class="logo-link">
-                <svg class="logo-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" style="width: 40px; vertical-align: middle;">
-                    <path d="M50 10 L90 90 L10 90 Z" fill="none" stroke="#e67e22" stroke-width="6" stroke-linejoin="round"/>
-                    <circle cx="50" cy="40" r="6" fill="#e67e22"/>
-                    <circle cx="50" cy="60" r="6" fill="#e67e22"/>
-                    <circle cx="50" cy="80" r="6" fill="#e67e22"/>
+                <svg class="logo-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M50 10 L90 90 L10 90 Z" fill="none" stroke="currentColor" stroke-width="6" stroke-linejoin="round"/>
+                    <circle cx="50" cy="40" r="6" fill="currentColor"/>
+                    <circle cx="50" cy="60" r="6" fill="currentColor"/>
+                    <circle cx="50" cy="80" r="6" fill="currentColor"/>
                 </svg>
-                <span class="logo-text" style="font-weight: bold; color: #e67e22; font-size: 1.5rem; margin-left: 10px;">Bella Pizza</span>
+                <span class="logo-text">Bella Pizza</span>
             </a>
         </div>
-        
         <nav>
             <ul>
                 <li><a href="index.html" class="active">Home</a></li>
                 <li><a href="historia.html">História</a></li>
                 <li><a href="menu.html">Cardápio</a></li>
                 <li><a href="pedidomesa.html">Pedido na Mesa</a></li>
-                <li><a href="encomenda.html">Encomendar</a></li>
+                <li><a href="reservas.html">Reservas</a></li>
                 <li><a href="contatos.html">Contactos</a></li>
             </ul>
         </nav>
     </header>
 
     <main>
-        <section id="hero" style="background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1513104890138-7c749659a591?q=80&w=1500'); background-size: cover; padding: 100px 0; text-align: center; color: white;">
-            <div class="hero-content container">
-                <h2 style="font-size: 3rem; margin-bottom: 20px;">A Melhor Pizza Forno a Lenha de Aveiro</h2>
-                <p style="font-size: 1.2rem; margin-bottom: 30px;">Ingredientes frescos, massa artesanal e o carinho da tradição ítalo-brasileira.</p>
-                <a href="encomenda.html" class="btn-principal" style="background: #e67e22; color: white; padding: 15px 40px; border-radius: 50px; text-decoration: none; font-weight: bold; font-size: 1.2rem;">🚀 Peça Agora na Bag!</a>
+        <section id="hero">
+            <div class="hero-content">
+                <h2>A Melhor Pizza Forno a Lenha</h2>
+                <p>Ingredientes frescos e massa artesanal com o toque de Ricardo & Isabella.</p>
+                <div style="margin-top: 30px;">
+                    <a href="encomenda.html" class="btn-principal">Peça Já na Bag!</a>
+                </div>
             </div>
         </section>
 
-        <section id="promocoes" class="container" style="padding: 60px 0;">
-            <h3 style="text-align: center; color: #d35400; font-size: 2rem; margin-bottom: 40px;">Promoções Imperdíveis</h3>
-            <div class="flex promos-grid" style="gap: 20px;">
-                
+        <section id="promocoes" class="container">
+            <h3 class="titulo-secao">Promoções Imperdíveis</h3>
+            <div class="flex promos-grid">
                 <div class="promo-item card-destaque">
-                    <img src="https://images.unsplash.com/photo-1593560704563-f176a2eb61db?q=80&w=600" alt="Combo Família" style="width: 100%; border-radius: 10px;">
-                    <div class="promo-content" style="padding: 20px; text-align: center;">
-                        <span class="badge" style="background: #e67e22; color: white; padding: 5px 10px; border-radius: 5px; font-size: 0.8rem;">MAIS PEDIDO</span>
+                    <img src="https://images.unsplash.com/photo-1593560704563-f176a2eb61db?q=80&w=600" alt="Combo Família">
+                    <div class="promo-content">
                         <h3>Combo Família</h3>
-                        <p>1 Pizza Grande + 1 Sobremesa + 1 Bebida XL por apenas <strong>€29,90</strong>.</p>
-                        <a href="encomenda.html" class="btn-submit" style="display: block; margin-top: 15px; background: #27ae60; color: white; padding: 10px; border-radius: 5px; text-decoration: none;">Aproveitar!</a>
+                        <p>1 Pizza Grande + 1 Lasanha + Bebida por apenas €29,90.</p>
+                        <a href="encomenda.html" class="btn-secundario">Aproveitar!</a>
                     </div>
                 </div>
 
                 <div class="promo-item card-destaque promo-crianca">
-                    <img src="https://images.unsplash.com/photo-1534308983496-4fabb1a015ee?q=80&w=600" alt="Rodízio" style="width: 100%; border-radius: 10px;">
-                    <div class="promo-content" style="padding: 20px; text-align: center;">
-                        <span class="badge" style="background: #d35400; color: white; padding: 5px 10px; border-radius: 5px; font-size: 0.8rem;">EVENTO</span>
-                        <h3>Rodízio de Pizzas</h3>
-                        <p>Toda Quarta e Sábado. Crianças até 8 anos <strong>PAGAM METADE!</strong></p>
-                        <a href="reservas.html" class="btn-submit" style="display: block; margin-top: 15px; background: #27ae60; color: white; padding: 10px; border-radius: 5px; text-decoration: none;">Reservar Mesa</a>
+                    <span class="badge">CHEF'S CHOICE</span>
+                    <img src="https://images.unsplash.com/photo-1534308983496-4fabb1a015ee?q=80&w=600" alt="Rodízio">
+                    <div class="promo-content">
+                        <h3>Rodízio Variado</h3>
+                        <p>Quartas e Sábados. Crianças até 8 anos pagam metade!</p>
+                        <a href="reservas.html" class="btn-secundario">Reservar Mesa</a>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="aniversariante" class="container" style="background: #fff3e0; border-radius: 20px; padding: 40px; margin-bottom: 60px;">
-            <div class="flex" style="align-items: center; gap: 30px;">
-                <div class="aniv-texto" style="flex: 2;">
-                    <h2 style="color: #e67e22;">O seu aniversário é por nossa conta! 🎂</h2>
-                    <p>Celebre na Bella Pizza com mais de 10 amigos e a **sua refeição é GRÁTIS!**</p>
-                    <ul style="list-style: none; padding: 0; margin: 20px 0;">
-                        <li>✅ 10% de desconto para os convidados.</li>
-                        <li>✅ Espumante de oferta para o brinde.</li>
-                    </ul>
-                    <a href="contatos.html" class="btn-reserva-aniv" style="background: #d35400; color: white; padding: 12px 25px; border-radius: 5px; text-decoration: none; font-weight: bold;">Saber Mais</a>
-                </div>
-                <div class="aniv-imagem" style="flex: 1;">
-                    <img src="https://img.freepik.com/psd-gratuitas/um-monte-de-baloes-flutuantes-isolados_23-2151840522.jpg" alt="Balões" style="width: 100%;">
+        <section id="aniversariante" class="container">
+            <div class="card-aniversario-wrapper">
+                <img src="https://img.freepik.com/psd-gratuitas/um-monte-de-baloes-flutuantes-isolados_23-2151840522.jpg" alt="Balões" class="baloes-decorativos">
+                <div class="card-aniversario">
+                    <div class="selo-desconto">-10%</div>
+                    <div class="flex">
+                        <div class="aniv-texto">
+                            <h2>Festa na Bella Pizza 🎂</h2>
+                            <p>O seu dia é por nossa conta! Aniversariante não paga em grupos acima de 10 pessoas.</p>
+                            <a href="reservas.html" class="btn-reserva-aniv">Reservar Minha Festa</a>
+                        </div>
+                        <div class="aniv-imagem">
+                            <img src="https://images.unsplash.com/photo-1530103862676-fa8c91247788?q=80&w=600" alt="Festa">
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
     </main>
 
-    <footer id="contacto" style="background: #2c3e50; color: white; padding: 50px 0 20px 0;">
-        <div class="container flex" style="justify-content: space-between; gap: 40px;">
+    <footer id="contacto">
+        <div class="container flex">
             <div class="footer-info">
-                <h3 style="color: #e67e22;">Bella Pizza Aveiro</h3>
+                <h3>Bella Pizza Aveiro</h3>
                 <p>📍 Rua da Mozzarella, 45, Aveiro</p>
                 <p>📞 +351 924 116 588</p>
-                <p>📧 geral@bellapizza.pt</p>
             </div>
             <div class="footer-social">
-                <h3>Siga o Sonho de Ricardo & Isabella</h3>
-                <div style="margin-top: 10px;">
-                    <a href="#" style="color: white; margin-right: 15px;">Facebook</a>
-                    <a href="#" style="color: white;">Instagram</a>
-                </div>
+                <h3>Siga-nos</h3>
+                <a href="#">Facebook</a> | <a href="#">Instagram</a>
             </div>
         </div>
-        <div class="copyright" style="text-align: center; margin-top: 40px; border-top: 1px solid #34495e; padding-top: 20px; font-size: 0.8rem;">
-            <p>&copy; 2026 Bella Pizza - Todos os direitos reservados. <br> Projeto Final — UC00604 Frontend - Formador João Pedro</p>
+        <div class="copyright">
+            <p>&copy; 2026 Bella Pizza - Todos os direitos reservados # Projeto Final — UC00604 Frontend.</p>
         </div>
     </footer>
 
     <div class="voltar-topo">
-        <a href="#home" style="position: fixed; bottom: 20px; right: 20px; background: #e67e22; color: white; padding: 10px 15px; border-radius: 50%; text-decoration: none;">↑</a>
+        <a href="#home">↑</a>
     </div>
 </body>
 </html>
