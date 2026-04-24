@@ -2,110 +2,114 @@
 <html lang="pt">
 <head>
     <meta charset="UTF-8">
-    <title>Bella Pizza | Encomendar</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bella Pizza | Encomendar para Entrega</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header class="navbar">
-    <div class="logo">
-        <h1>Bella Pizza 🍕</h1>
-        <span>Desde 1998</span>
-    </div>
-    <nav role="navigation">
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="historia.html">História</a></li>
-            <li><a href="menu.html">Cardápio</a></li> <li><a href="pedidomesa.html" class="active">Fazer Pedido</a></li> <li><a href="reservas.html">Reservas</a></li>
-            <li><a href="encomenda.html">Encomendar</a></li>
-            <li><a href="reservas.html">Reservas</a></li>
-            <li><a href="contatos.html">Contactos</a></li>
-        </ul>
-    </nav>
-</header>
-    <header class="navbar"> </header>
+        <div class="logo">
+            <h1>Bella Pizza 🍕</h1>
+            <span>Desde 1998</span>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="menu.html">Cardápio</a></li> 
+                <li><a href="pedidomesa.html">Pedido na Mesa</a></li>
+                <li><a href="encomenda.html" class="active">Encomendar</a></li>
+                <li><a href="contatos.html">Contactos</a></li>
+            </ul>
+        </nav>
+    </header>
 
-        <main class="container">
-        <h3>Peça a sua Pizza</h3>
-                <section id="encomenda">
-            <div class="container">
-                <h3>Faça a sua Encomenda</h3>
-                <form action="#" method="POST">
-                    <div class="form-group flex">
-                        <div class="w-50">
-                            <label for="nome">Nome Completo:</label>
-                            <input type="text" id="nome" name="nome" placeholder="Digite o seu nome" required minlength="3">
-                        </div>
-                        <div class="w-50">
-                            <label for="telefone">Telefone:</label>
-                            <input type="tel" id="telefone" name="telefone" placeholder="9xx xxx xxx" required pattern="[0-9]{9}">
-                        </div>
+    <main class="container">
+        <section class="card-pedido">
+            <h2 style="text-align: center; color: #e67e22;">🚚 Encomenda ao Domicílio</h2>
+            <p style="text-align: center; margin-bottom: 20px;">Preencha os dados para entrega em Aveiro</p>
+
+            <form id="formEncomenda">
+                <div class="form-group">
+                    <label for="enc-nome">Nome Completo:</label>
+                    <input type="text" id="enc-nome" placeholder="Seu nome" required>
+                </div>
+
+                <div class="linha-pedido">
+                    <div class="coluna-item">
+                        <label for="enc-telefone">Telefone:</label>
+                        <input type="tel" id="enc-telefone" placeholder="9xxxxxxxx" required>
                     </div>
+                </div>
 
-                    <label for="endereco">Endereço de Entrega:</label>
-                    <input type="text" id="endereco" name="endereco" placeholder="Rua, Número, Andar..." required>
+                <div class="form-group">
+                    <label for="enc-endereco">Endereço Completo:</label>
+                    <input type="text" id="enc-endereco" placeholder="Rua, Número, Código Postal" required>
+                </div>
 
-                    <fieldset>
-                        <legend>O Seu Pedido:</legend>
-                        <label for="pizza_select">Escolha a Pizza:</label>
-                        <select id="pizza_select" name="pizza_pedido" required>
-                            <option value="" disabled selected>Selecione uma opção</option>
-                            <option value="margherita">Margherita</option>
-                            <option value="pepperoni">Pepperoni Premium</option>
-                            <option value="vegetariana">Vegetariana Deluxe</option>
-                        </select>
-                        
-                        <div class="flex extras">
-                            <label>Extras:</label>
-                            <input type="checkbox" id="extra_queijo" name="extra" value="queijo">
-                            <label for="extra_queijo" class="label-inline">Queijo</label>
-                            
-                            <input type="checkbox" id="extra_bacon" name="extra" value="bacon">
-                            <label for="extra_bacon" class="label-inline">Bacon</label>
-                        </div>
-                    </fieldset>
+                <hr>
 
-                    <label for="obs">Observações:</label>
-                    <textarea id="obs" name="obs" rows="3" placeholder="Ex: Sem cebola, campainha avariada..."></textarea>
+<div class="linha-pedido">
+    <div class="coluna-item">
+        <label>Escolha o Item (Pizza ou Bebida):</label>
+        <select id="enc-item">
+            <option value="" disabled selected>Selecione um produto...</option>
+            
+            <optgroup label="Pizzas (32cm)">
+                <option value="Pizza Margherita">Margherita - €12,50</option>
+                <option value="Pepperoni Premium">Pepperoni Premium - €14,90</option>
+                <option value="Pepperoni Lovers">Pepperoni Lovers - €16,90</option>
+                <option value="Hawaiian Premium">Hawaiian Premium - €15,90</option>
+                <option value="BBQ Chicken">BBQ Chicken - €14,90</option>
+                <option value="Chicken Premium">Chicken Premium - €16,90</option>
+                <option value="Supreme">Supreme - €17,90</option>
+                <option value="Supreme Premium">Supreme Premium - €18,90</option>
+                <option value="P-Zone Premium">P-Zone Premium - €14,90</option>
+                <option value="Vegetariana Deluxe">Vegetariana Deluxe - €15,50</option>
+            </optgroup>
 
-                    <button type="submit" class="btn-submit">Finalizar Pedido (&euro;)</button>
-                </form>
-            </div>
+            <optgroup label="Bebidas">
+                <option value="Vinho da Casa">Vinho da Casa - €18,00</option>
+                <option value="Água Luso">Água Luso - €1,50</option>
+                <option value="Coca-Cola">Coca-Cola - €1,80</option>
+                <option value="Fanta Laranja">Fanta Laranja - €1,80</option>
+                <option value="Guaraná Antárctica">Guaraná Antárctica - €1,80</option>
+                <option value="Sprite">Sprite - €1,80</option>
+                <option value="Fanta Uva">Fanta Uva - €1,80</option>
+                <option value="Pepsi">Pepsi - €1,80</option>
+            </optgroup>
+        </select>
+    </div>
+    <div class="coluna-qtd">
+        <label>Qtd:</label>
+        <input type="number" id="enc-qtd" min="1" value="1">
+    </div>
+</div>
+                <div class="form-group">
+                    <label>Extras:</label>
+                    <div style="display: flex; gap: 10px; margin-top: 5px;">
+                        <input type="checkbox" id="ex-queijo" value="Extra Queijo"> <label for="ex-queijo">Queijo</label>
+                        <input type="checkbox" id="ex-bacon" value="Extra Bacon"> <label for="ex-bacon">Bacon</label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="enc-obs">Observações:</label>
+                    <textarea id="enc-obs" rows="2" placeholder="Ex: Sem cebola, campainha avariada..."></textarea>
+                </div>
+
+                <button type="button" class="btn-finalizar" onclick="enviarEncomendaWhatsApp()" style="width: 100%; background: #27ae60;">
+                    🚀 Finalizar e Enviar via WhatsApp
+                </button>
+            </form>
         </section>
     </main>
 
-        <footer id="contacto">
-        <div class="container flex">
-            <div class="footer-info">
-                <h3>Bella Pizza Aveiro</h3>
-                <p>Rua dos Mercadores, 123</p>
     <footer id="contacto">
-        <div class="container flex">
-            <div class="footer-info">
-                <h3>Bella Pizza Aveiro</h3>
-                <p>Rua da Mozzarella, 45, Aveiro</p>
-                <p>3800-123 Aveiro</p>
-            </div>
-            <div class="footer-social">
-                <h3>Siga-nos</h3>
-                <a href="https://www.facebook.com">Facebook</a> | <a href="https://www.instagram.com">Instagram</a>
-            </div>
-        </div>
         <div class="copyright">
-            <p>&copy; 2026 Bella Pizza - Todos os direitos reservados # Projeto Final — UC00604 Frontend.</p>
+            <p>&copy; 2026 Bella Pizza - Formador João Pedro</p>
         </div>
     </footer>
 
-                <a href="https://www.facebook.com">Facebook</a> | <a href="https://www.instagram.com">Instagram</a>
-            </div>
-        </div>
-        <div class="copyright">
-            <p>&copy; 2026 Bella Pizza - Todos os direitos reservados # Projeto Final — UC00604 Frontend. - Formador João Pedro</p>
-        </div>
-    </footer>
-    <div class="voltar-topo">
-        <a href="#">↑</a>
-    </div>
-
+    <script src="script.js"></script>
 </body>
-</html>
 </html>
