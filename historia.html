@@ -2,45 +2,54 @@
 <html lang="pt">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bella Pizza | Nossa História</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header class="navbar">
-    <div class="logo">
-        <h1>Bella Pizza 🍕</h1>
-        <span>Desde 1998</span>
-    </div>
-    <nav role="navigation">
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="historia.html">História</a></li>
-            <li><a href="menu.html">Cardápio</a></li> <li><a href="pedidomesa.html" class="active">Fazer Pedido</a></li> <li><a href="reservas.html">Reservas</a></li>
-            <li><a href="encomenda.html">Encomendar</a></li>
-            <li><a href="reservas.html">Reservas</a></li>
-            <li><a href="contatos.html">Contactos</a></li>    
-        </ul>
-    </nav>
-</header>
-    <header class="navbar"> </header>
+        <div class="logo">
+            <h1>Bella Pizza 🍕</h1>
+            <span>Desde 1998</span>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="historia.html" class="active">História</a></li>
+                <li><a href="menu.html">Cardápio</a></li> 
+                <li><a href="pedidomesa.html">Pedido na Mesa</a></li>
+                <li><a href="encomenda.html">Encomendar</a></li>
+                <li><a href="contatos.html">Contactos</a></li>
+            </ul>
+        </nav>
+    </header>
 
     <main class="container">
-        <section class="flex">
-            <div class="sobre-texto">
-                <h3>Nossa História</h3>
-                <p>Desde 1998, seguimos a receita tradicional do Nonno Luigi Mascaranyes...</p>
+        <section class="flex" style="align-items: center; gap: 40px; margin-top: 40px;">
+            <div class="sobre-texto" style="flex: 1;">
+                <h2 style="color: #e67e22; font-size: 2rem; margin-bottom: 20px;">Do Brasil para Aveiro: Um Sonho em Massa</h2>
+                
+                <p>A história da <strong>Bella Pizza</strong> começou muito antes de cruzarmos o Atlântico. Em 1998, na agitada São Paulo, o casal <strong>Ricardo e Isabella</strong> decidiu que o amor pela gastronomia não cabia mais apenas na cozinha de casa.</p>
+                
+                <p>Ricardo, neto de italianos, herdou do Nonno Luigi o segredo da fermentação lenta. Isabella, com seu toque brasileiro, trouxe a criatividade dos sabores e a paixão pelo atendimento caloroso. Juntos, construíram uma das pizzarias mais queridas da sua cidade natal.</p>
+                
+                <h3 style="color: #d35400; margin-top: 25px;">A Travessia</h3>
+                <p>Em 2024, o desejo de uma nova vida em Portugal falou mais alto. Na bagagem? Apenas o essencial: a coragem e a **massa mãe** (levain) que a família cultiva há décadas. Ao chegarem em Aveiro, apaixonaram-se pelos canais e pela luz da cidade, sabendo imediatamente que ali seria o novo lar da Bella Pizza.</p>
+                
+                <blockquote style="border-left: 5px solid #e67e22; padding-left: 15px; font-style: italic; margin: 20px 0; color: #555;">
+                    "Não queríamos apenas vender pizza; queríamos trazer o conforto de uma refeição feita em família para a mesa dos nossos novos vizinhos portugueses." — Isabella
+                </blockquote>
+
+                <p>Hoje, a Bella Pizza une o rigor da tradição italiana, a generosidade brasileira e os melhores ingredientes frescos de Portugal. Cada pizza que sai do nosso forno leva um pedaço da nossa jornada.</p>
             </div>
-            <div class="sobre-imagem">
-                <img src="https://images.unsplash.com/photo-1593560704563-f176a2eb61db?q=80&w=500" alt="Forno a lenha">
+
+            <div class="sobre-imagem" style="flex: 1;">
+                <img src="https://images.unsplash.com/photo-1541745537411-b8046dc6d66c?q=80&w=600" alt="Casal cozinhando" style="width: 100%; border-radius: 15px; box-shadow: 0 10px 20px rgba(0,0,0,0.1);">
+                <p style="text-align: center; font-size: 0.9rem; color: #888; margin-top: 10px;">Ricardo e Isabella preparando a fornada do dia.</p>
             </div>
         </section>
     </main>
 
-        <footer id="contacto">
-        <div class="container flex">
-            <div class="footer-info">
-                <h3>Bella Pizza Aveiro</h3>
-                <p>Rua dos Mercadores, 123</p>
     <footer id="contacto">
         <div class="container flex">
             <div class="footer-info">
@@ -50,24 +59,16 @@
             </div>
             <div class="footer-social">
                 <h3>Siga-nos</h3>
-                <a href="https://www.facebook.com">Facebook</a> | <a href="https://www.instagram.com">Instagram</a>
-            </div>
-        </div>
-        <div class="copyright">
-            <p>&copy; 2026 Bella Pizza - Todos os direitos reservados # Projeto Final — UC00604 Frontend.</p>
-        </div>
-    </footer>
-
-                <a href="https://www.facebook.com">Facebook</a> | <a href="https://www.instagram.com">Instagram</a>
+                <a href="#">Facebook</a> | <a href="#">Instagram</a>
             </div>
         </div>
         <div class="copyright">
             <p>&copy; 2026 Bella Pizza - Todos os direitos reservados # Projeto Final — UC00604 Frontend. - Formador João Pedro</p>
         </div>
     </footer>
+
     <div class="voltar-topo">
         <a href="#">↑</a>
     </div>
-
 </body>
 </html>
