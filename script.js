@@ -7,25 +7,40 @@
 let pedidosRealizados = [];
 
 // ==========================================
-// 1. FUNÇÕES DO GARÇOM (INTERAÇÃO)
+// 1. FUNÇÕES DO GARÇOM (CORRIGIDO)
 // ==========================================
 
-// Função para abrir o modal de "Chamar Garçom"
 function abrirMensagem() {
-    const piadas = [
-        "O Luigi está a caminho! 🏃‍♂️", 
-        "Garçom a postos! 🚨", 
-        "O queijo está a derreter, ele corre já para aí! 🧀"
-    ];
-    document.getElementById('texto-engracado').innerText = piadas[Math.floor(Math.random() * piadas.length)];
-    document.getElementById('caixa-aviso').style.display = 'flex';
+    // 1. Verificar se o elemento existe na página antes de tentar usar
+    const modal = document.getElementById('caixa-aviso');
+    const texto = document.getElementById('texto-engracado');
+
+    if (modal && texto) {
+        const piadas = [
+            "O Luigi está a caminho! 🏃‍♂️", 
+            "Garçom a postos! 🚨", 
+            "O queijo está a derreter, ele corre já para aí! 🧀"
+        ];
+        
+        // Sorteia a frase
+        texto.innerText = piadas[Math.floor(Math.random() * piadas.length)];
+        
+        // Mostra o modal (IMPORTANTE: usamos 'flex' para centralizar)
+        modal.style.display = 'flex';
+    } else {
+        console.error("Erro: O HTML do modal não foi encontrado na página!");
+        alert("O Luigi está a vir! (Mas o modal de aviso não foi encontrado no código HTML)");
+    }
 }
 
-// Função para fechar o modal
 function fecharMensagem() {
-    document.getElementById('caixa-aviso').style.display = 'none';
+    const modal = document.getElementById('caixa-aviso');
+    if (modal) {
+        modal.style.display = 'none';
+    }
 }
 
+// ... restante do código de adicionar ao carrinho e enviar WhatsApp ...
 // ==========================================
 // 2. LÓGICA DO CARRINHO DE COMPRAS
 // ==========================================
