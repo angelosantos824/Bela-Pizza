@@ -1,15 +1,8 @@
-// Variável global para guardar os itens do pedido
-let carrinho = [];
+let pedidosRealizados = [];
 
-// 1. FUNÇÕES DO GARÇOM
 function abrirMensagem() {
-    const piadas = [
-        "O Luigi já calçou as chuteiras! 🏃‍♂️",
-        "Garçom detetado a 50 metros! 🚨",
-        "O nosso garçom é como o queijo: está em todo o lado! 🧀"
-    ];
-    const sorteio = piadas[Math.floor(Math.random() * piadas.length)];
-    document.getElementById('texto-engracado').innerText = sorteio;
+    const piadas = ["O Luigi está a caminho! 🏃‍♂️", "Garçom a postos! 🚨", "O queijo está a derreter de pressa! 🧀"];
+    document.getElementById('texto-engracado').innerText = piadas[Math.floor(Math.random() * piadas.length)];
     document.getElementById('caixa-aviso').style.display = 'flex';
 }
 
@@ -17,59 +10,54 @@ function fecharMensagem() {
     document.getElementById('caixa-aviso').style.display = 'none';
 }
 
-// 2. FUNÇÃO PARA ADICIONAR AO CARRINHO (Sem enviar ainda)
-function adicionarAoPedido() {
-    const pizza = document.getElementById('pizza').value;
-    const qtdPizza = document.getElementById('qtd_pizza').value;
-    const bebida = document.getElementById('bebida').value;
-    const qtdBebida = document.getElementById('qtd_bebida').value;
+function adicionarAoCarrinho() {
+    const comida = document.getElementById('item-comida').value;
+    const bebida = document.getElementById('item-bebida').value;
+    const listaUI = document.getElementById('lista-carrinho');
+    const areaCarrinho = document.getElementById('area-carrinho');
 
-    if (pizza !== "Nenhuma" && qtdPizza > 0) {
-        carrinho.push(`${qtdPizza}x ${pizza}`);
-    }
-    if (bebida !== "Nenhuma" && qtdBebida > 0) {
-        carrinho.push(`${qtdBebida}x ${bebida}`);
-    }
-
-    alert("Item adicionado à lista! Pode escolher mais coisas ou finalizar o pedido.");
-    
-    // Limpa as seleções para o próximo item
-    document.getElementById('pizza').value = "Nenhuma";
-    document.getElementById('bebida').value = "Nenhuma";
-}
-
-// 3. FUNÇÃO PARA ENVIAR TUDO PARA O WHATSAPP
-function enviarParaWhatsApp() {
-    const mesa = document.getElementById('mesa').value;
-    const pagamento = document.querySelector('input[name="pagamento"]:checked').value;
-
-    if (!mesa) {
-        alert("Por favor, selecione a sua mesa!");
+    if (comida === "Nenhum" && bebida === "Nenhum") {
+        alert("Escolha pelo menos um item!");
         return;
     }
 
-    if (carrinho.length === 0) {
-        alert("O seu carrinho está vazio! Adicione itens primeiro.");
-        return;
-    }
+    if (comida !== "Nenhum") pedidosRealizados.push(comida);
+    if (bebida !== "Nenhum") pedidosRealizados.push(bebida);
 
-    // Montar a lista de itens
-    let listaItens = "";
-    carrinho.forEach((item, index) => {
-        listaItens += `${index + 1}. ${item}\n`;
+    // Atualiza a lista na tela
+    listaUI.innerHTML = "";
+    pedidosRealizados.forEach(item => {
+        let li = document.createElement('li');
+        li.innerText = "• " + item;
+        listaUI.appendChild(li);
     });
 
-    let texto = `*NOVO PEDIDO MULTIPLO - BELLA PIZZA* 🍕\n\n`;
-    texto += `📍 *Mesa:* ${mesa}\n\n`;
-    texto += `📝 *Itens do Pedido:*\n${listaItens}\n`;
-    texto += `💳 *Pagamento:* ${pagamento}\n\n`;
-    texto += `_Enviado via Menu Digital_`;
-
-    const numero = "351912345678"; 
-    const link = `https://wa.me/${numero}?text=${encodeURIComponent(texto)}`;
-
-    window.open(link, '_blank');
+    areaCarrinho.style.display = 'block';
     
-    // Opcional: Limpar carrinho após enviar
-    carrinho = [];
+    // Limpa os selects para nova escolha
+    document.getElementById('item-comida').value = "Nenhum";
+    document.getElementById('item-bebida').value = "Nenhum";
+}
+
+function mostrarPagamento() {
+    const mesa = document.getElementById('mesa').value;
+    if (!mesa) {
+        alert("Indique a sua mesa primeiro!");
+        return;
+    }
+    document.getElementById('secao-pagamento').style.display = 'block';
+    window.scrollTo(0, document.body.scrollHeight);
+}
+
+function enviarWhatsAppFinal() {
+    const mesa = document.getElementById('mesa').value;
+    const pagamento = document.querySelector('input[name="pagamento"]:checked').value;
+    
+    let texto = `*PEDIDO FINAL - BELLA PIZZA* 🍕\n\n`;
+    texto += `📍 Mesa: ${mesa}\n`;
+    texto += `📝 Itens:\n - ${pedidosRealizados.join('\n - ')}\n\n`;
+    texto += `💳 Pagamento: ${pagamento}\n`;
+
+    const link = `https://wa.me/351912345678?text=${encodeURIComponent(texto)}`;
+    window.open(link, '_blank');
 }
