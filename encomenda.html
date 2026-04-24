@@ -38,96 +38,84 @@
 
         <hr>
 
-<div class="linha-pedido">
-    <div class="coluna-item">
-        <label>Escolha o Item para a Bag:</label>
-        <select id="enc-item">
-            <option value="" disabled selected>Selecione um produto...</option>
-            
-            <optgroup label="Pizzas (32cm)">
-                <option value="Margherita">Margherita - €12,50</option>
-                <option value="Pepperoni Premium">Pepperoni Premium - €14,90</option>
-                <option value="Pepperoni Lovers">Pepperoni Lovers - €16,90</option>
-                <option value="Hawaiian Premium">Hawaiian Premium - €15,90</option>
-                <option value="BBQ Chicken">BBQ Chicken - €14,90</option>
-                <option value="Chicken Premium">Chicken Premium - €16,90</option>
-                <option value="Supreme">Supreme - €17,90</option>
-                <option value="Supreme Premium">Supreme Premium - €18,90</option>
-                <option value="P-Zone Premium">P-Zone Premium - €14,90</option>
-                <option value="Vegetariana Deluxe">Vegetariana Deluxe - €15,50</option>
-            </optgroup>
+        <div class="linha-pedido">
+            <div class="coluna-item">
+                <label>Escolha o Item:</label>
+                <select id="enc-item">
+                    <option value="" disabled selected>Selecione um produto...</option>
+                    <optgroup label="Pizzas">
+                        <option value="Margherita">Margherita - €12,50</option>
+                        <option value="Pepperoni Premium">Pepperoni Premium - €14,90</option>
+                        <option value="Pepperoni Lovers">Pepperoni Lovers - €16,90</option>
+                        <option value="Hawaiian Premium">Hawaiian Premium - €15,90</option>
+                        <option value="BBQ Chicken">BBQ Chicken - €14,90</option>
+                        <option value="Chicken Premium">Chicken Premium - €16,90</option>
+                        <option value="Supreme">Supreme - €17,90</option>
+                        <option value="Supreme Premium">Supreme Premium - €18,90</option>
+                        <option value="P-Zone Premium">P-Zone Premium - €14,90</option>
+                        <option value="Vegetariana Deluxe">Vegetariana Deluxe - €15,50</option>
+                    </optgroup>
+                    <optgroup label="Bebidas">
+                        <option value="Vinho da Casa (Tinto)">Vinho da Casa - €18,00</option>
+                        <option value="Água Luso (500ml)">Água Luso - €1,50</option>
+                        <option value="Coca-Cola">Coca-Cola - €1,80</option>
+                        <option value="Fanta Laranja">Fanta Laranja - €1,80</option>
+                        <option value="Guaraná Antárctica">Guaraná - €1,80</option>
+                        <option value="Sprite">Sprite - €1,80</option>
+                        <option value="Fanta Uva">Fanta Uva - €1,80</option>
+                        <option value="Pepsi">Pepsi - €1,80</option>
+                    </optgroup>
+                    <optgroup label="Sobremesas">
+                        <option value="Tiramisù Clássico">Tiramisù Clássico - €6,50</option>
+                    </optgroup>
+                </select>
+            </div>
+            <div class="coluna-qtd">
+                <label>Qtd:</label>
+                <input type="number" id="enc-qtd" min="1" value="1">
+            </div>
+        </div>
 
-            <optgroup label="Bebidas">
-                <option value="Vinho da Casa (Tinto)">Vinho da Casa (Tinto) - €18,00</option>
-                <option value="Água Luso (500ml)">Água Luso (500ml) - €1,50</option>
-                <option value="Coca-Cola">Coca-Cola - €1,80</option>
-                <option value="Fanta Laranja">Fanta Laranja - €1,80</option>
-                <option value="Guaraná Antárctica">Guaraná Antárctica - €1,80</option>
-                <option value="Sprite">Sprite - €1,80</option>
-                <option value="Fanta Uva">Fanta Uva - €1,80</option>
-                <option value="Pepsi">Pepsi - €1,80</option>
-            </optgroup>
-
-            <optgroup label="Sobremesas">
-                <option value="Tiramisù Clássico">Tiramisù Clássico - €6,50</option>
-            </optgroup>
-        </select>
-    </div>
-    <div class="coluna-qtd">
-        <label>Qtd:</label>
-        <input type="number" id="enc-qtd" min="1" value="1">
-    </div>
-</div>
-        <button type="button" class="btn-secundario" onclick="adicionarABag()" style="width: 100%; background: #e67e22; color: white; border: none; padding: 10px; border-radius: 5px; cursor: pointer; margin-bottom: 20px;">
+        <button type="button" onclick="adicionarABag()" style="width: 100%; background: #e67e22; color: white; border: none; padding: 12px; border-radius: 5px; cursor: pointer; font-weight: bold; margin-bottom: 20px;">
             💼 Adicionar à Bag
         </button>
 
         <div id="area-bag" style="display:none; background: #f9f9f9; padding: 15px; border-radius: 8px; border: 1px dashed #e67e22; margin-bottom: 20px;">
             <h4 style="margin-top: 0;">💼 Itens na sua Bag:</h4>
             <ul id="lista-bag" style="list-style: none; padding: 0;"></ul>
+            <div style="text-align: right; font-weight: bold; margin-top: 10px;">
+                Total: <span id="total-bag">0,00</span>€
+            </div>
         </div>
 
         <div class="form-group">
-            <label for="enc-obs">Observações Gerais:</label>
-            <textarea id="enc-obs" rows="2" placeholder="Ex: Sem cebola, troco para 50€..."></textarea>
+            <label>Forma de Pagamento:</label>
+            <select id="enc-pagamento">
+                <option value="MB WAY">MB WAY</option>
+                <option value="Dinheiro">Dinheiro</option>
+                <option value="Cartão">Cartão (Terminal)</option>
+            </select>
         </div>
-        <div class="form-group" style="background: #fff3e0; padding: 15px; border-radius: 8px; margin-top: 15px;">
-    <label><strong>Forma de Pagamento na Entrega:</strong></label>
-    <div style="margin-top: 10px;">
-        <input type="radio" name="pagamento-enc" value="MB WAY" id="enc-mbway" checked> 
-        <label for="enc-mbway">MB WAY</label><br>
-        
-        <input type="radio" name="pagamento-enc" value="Dinheiro" id="enc-dinheiro"> 
-        <label for="enc-dinheiro">Dinheiro</label><br>
-        
-        <input type="radio" name="pagamento-enc" value="Cartão" id="enc-cartao"> 
-        <label for="enc-cartao">Cartão (Terminal Móvel)</label>
-    </div>
-</div>
 
-<div style="text-align: right; margin: 20px 0; font-size: 1.2rem;">
-    <strong>Total da Bag: <span id="total-bag" style="color: #27ae60;">0,00</span>€</strong>
-</div>
+        <div class="form-group">
+            <label for="enc-obs">Observações:</label>
+            <textarea id="enc-obs" rows="2" placeholder="Notas do pedido..."></textarea>
+        </div>
 
-<button type="button" class="btn-finalizar" onclick="enviarBagWhatsApp()" style="width: 100%; background: #27ae60; color: white; padding: 15px; border: none; border-radius: 5px; font-weight: bold; cursor: pointer;">
-    ✅ Finalizar e Enviar para o Pizzaiolo
-</button>
-
-<div id="modal-confirmacao" style="display:none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 2000; justify-content: center; align-items: center;">
-    <div style="background: white; padding: 40px; border-radius: 20px; text-align: center; border: 4px solid #e67e22;">
-        <div style="font-size: 60px;">👨‍🍳</div>
-        <h2 style="color: #e67e22;">Pedido Confirmado!</h2>
-        <p style="font-size: 18px; margin: 20px 0;">O seu pedido já está na <strong>mesa do pizzaiolo</strong> e sairá em breve para entrega!</p>
-        <button onclick="window.location.href='index.html'" style="background: #27ae60; color: white; border: none; padding: 10px 30px; border-radius: 5px; cursor: pointer; font-weight: bold;">Voltar ao Início</button>
-    </div>
-</div>
-
-        <button type="button" class="btn-finalizar" onclick="enviarBagWhatsApp()" style="width: 100%; background: #27ae60; color: white; padding: 15px; border: none; border-radius: 5px; font-weight: bold; cursor: pointer;">
-            ✅ Finalizar Encomenda via WhatsApp
+        <button type="button" onclick="enviarBagWhatsApp()" style="width: 100%; background: #27ae60; color: white; padding: 15px; border: none; border-radius: 5px; font-weight: bold; cursor: pointer;">
+            ✅ Enviar para a Mesa do Pizzaiolo
         </button>
     </section>
 </main>
-    <footer id="contacto">
+
+<div id="modal-confirmacao" style="display:none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); z-index: 2000; justify-content: center; align-items: center;">
+    <div style="background: white; padding: 40px; border-radius: 20px; text-align: center; border: 4px solid #e67e22; max-width: 90%;">
+        <div style="font-size: 60px;">👨‍🍳</div>
+        <h2 style="color: #e67e22;">Confirmado!</h2>
+        <p>O pedido já está na <strong>mesa do pizzaiolo</strong>!</p>
+        <button onclick="location.reload()" style="background: #27ae60; color: white; border: none; padding: 10px 20px; border-radius: 5px;">Fazer novo pedido</button>
+    </div>
+</div>    <footer id="contacto">
         <div class="copyright">
             <p>&copy; 2026 Bella Pizza - Formador João Pedro</p>
         </div>
