@@ -964,17 +964,99 @@ footer a {
     text-align: center;
     margin-bottom: 40px;
 }
-/* Rederização para mobile (Aula 7: Media Queries) */
-/* Quando a tela for menor que 600px (telemóveis) */
-@media (max-width: 600px) {
-  body {
-    font-size: 14px;
-  }
-  
-  /* Se tiver uma imagem grande, ela não "vaza" da tela */
-  img {
-    max-width: 100%;
-    height: auto;
-  }
+/* ============================================================
+   SECTION 8: RESPONSIVIDADE (Aula 7: Media Queries)
+   ============================================================ */
+
+/* Dispositivos Médios (Tablets - até 992px) */
+@media (max-width: 992px) {
+    .container { width: 90%; }
+    .hero-content h2 { font-size: 45px; }
+    .promo-item { width: 48%; }
 }
 
+/* Dispositivos Pequenos (Telemóveis - até 768px) */
+@media (max-width: 768px) {
+    /* 1. Ajuste da Navbar */
+    .navbar {
+        flex-direction: column; /* Logo em cima, menu em baixo */
+        padding: 15px 0;
+    }
+    
+    .navbar ul {
+        margin-top: 15px;
+        gap: 5px;
+        flex-wrap: wrap; /* Permite que os links quebrem linha se necessário */
+        justify-content: center;
+    }
+
+    .navbar ul li a {
+        margin-left: 5px;
+        margin-right: 5px;
+        font-size: 14px;
+    }
+
+    /* 2. Transformar Flex em Coluna (Empilhamento) */
+    .flex, .eventos-wrapper, .galeria-grid, .promos-grid {
+        flex-direction: column !important;
+        align-items: center;
+    }
+
+    /* 3. Ajustar larguras que eram 50% ou 45% para 100% */
+    .eventos-imagem, .eventos-texto, 
+    .aniv-texto, .aniv-imagem, 
+    .promo-item, .galeria-item,
+    .info-contato, .mapa,
+    .sobre-texto, .sobre-imagem {
+        width: 100% !important;
+        padding: 0;
+        text-align: center;
+    }
+
+    /* 4. Ajustes do Hero para Mobile */
+    .hero-content h2 {
+        font-size: 32px; /* Diminuir o título para não vazar */
+        padding: 0 10px;
+    }
+
+    .btn-principal {
+        padding: 15px 40px; /* Reduzir o botão gigante no mobile */
+        width: 80%; /* Botão largo para facilitar o toque */
+    }
+
+    /* 5. Ajustes de Formulários e Tabelas */
+    form { width: 95%; padding: 20px; }
+    .grid-inputs { grid-template-columns: 1fr; } /* Inputs um debaixo do outro */
+    
+    table, thead, tbody, th, td, tr {
+        display: block; /* Transforma a tabela em blocos para caber no ecrã */
+    }
+
+    /* 6. Ajuste do Mapa */
+    .mapa-moldura {
+        height: 250px;
+        left: 0;
+        margin: 20px 0;
+    }
+
+    /* 7. Esconder decorações que atrapalham o mobile */
+    .baloes-decorativos {
+        display: none; /* Balões costumam tapar o texto em ecrãs muito pequenos */
+    }
+
+    .selo-desconto {
+        left: 0;
+        top: 0;
+        transform: none;
+        width: 100%;
+        text-align: center;
+        border-radius: 0;
+    }
+}
+
+/* Dispositivos Muito Pequenos (até 480px) */
+@media (max-width: 480px) {
+    .hero-content h2 { font-size: 28px; }
+    .hero-content p { font-size: 16px; }
+    .navbar ul li a { font-size: 12px; padding: 5px; }
+}
