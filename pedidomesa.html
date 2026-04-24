@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bella Pizza | Pedido Inteligente</title>
+    <title>Bella Pizza | Fazer Pedido</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body id="pagina-pedido">
@@ -26,82 +26,85 @@
             <button type="button" class="btn-garcom" onclick="abrirMensagem()">🔔 Chamar Garçom</button>
         </div>
 
-        <div id="caixa-aviso" class="modal-sobreposicao" style="display:none;">
-            <div class="cartao-aviso">
-                <div class="pizza-animada">🍕</div>
-                <h2 id="titulo-aviso">Mamma Mia!</h2>
-                <p id="texto-engracado"></p>
-                <button onclick="fecharMensagem()" class="btn-entendido">Entendido!</button>
-            </div>
-        </div>
-
         <section class="card-pedido">
-            <h3>1. Identificação</h3>
-            <label for="mesa">Sua Mesa:</label>
+            <h3>1. Onde você está?</h3>
+            <label for="mesa">Selecione sua Mesa:</label>
             <select id="mesa">
                 <option value="" disabled selected>Escolha a mesa...</option>
-                <option value="01">Mesa 01</option>
-                <option value="02">Mesa 02</option>
-                <option value="03">Mesa 03</option>
-                </select>
+                <option value="01">Mesa 01</option> <option value="02">Mesa 02</option>
+                <option value="03">Mesa 03</option> <option value="04">Mesa 04</option>
+                <option value="05">Mesa 05</option> <option value="06">Mesa 06</option>
+                <option value="07">Mesa 07</option> <option value="08">Mesa 08</option>
+                <option value="09">Mesa 09</option> <option value="10">Mesa 10</option>
+                <option value="11">Mesa 11</option> <option value="12">Mesa 12</option>
+            </select>
         </section>
 
         <section class="card-pedido">
-            <h3>2. Adicionar Itens</h3>
+            <h3>2. O que vamos comer/beber?</h3>
             <div class="grid-inputs">
                 <div>
-                    <label>Pizza/Massa:</label>
-                    <select id="item-comida">
-                        <option value="Nenhum">Selecione...</option>
-                        <option value="Pizza Margherita">Margherita - €12,50</option>
-                        <option value="Pizza Pepperoni">Pepperoni - €14,90</option>
-                        <option value="Lasanha">Lasanha - €13,00</option>
+                    <label>Escolha o Item:</label>
+                    <select id="item-selecionado">
+                        <option value="Nenhum" disabled selected>Selecione um produto...</option>
+                        <optgroup label="Pizzas (32cm)">
+                            <option value="Pizza Margherita">Margherita - €12,50</option>
+                            <option value="Pepperoni Premium">Pepperoni Premium - €14,90</option>
+                            <option value="Pepperoni Lovers">Pepperoni Lovers - €16,90</option>
+                            <option value="Hawaiian Premium">Hawaiian Premium - €15,90</option>
+                            <option value="BBQ Chicken">BBQ Chicken - €14,90</option>
+                            <option value="Chicken Premium">Chicken Premium - €16,90</option>
+                            <option value="Supreme">Supreme - €17,90</option>
+                            <option value="Supreme Premium">Supreme Premium - €18,90</option>
+                            <option value="P-Zone Premium">P-Zone Premium - €14,90</option>
+                            <option value="Vegetariana Deluxe">Vegetariana Deluxe - €15,50</option>
+                        </optgroup>
+                        <optgroup label="Bebidas">
+                            <option value="Vinho da Casa">Vinho da Casa - €18,00</option>
+                            <option value="Água Luso">Água Luso - €1,50</option>
+                            <option value="Coca-Cola">Coca-Cola - €1,80</option>
+                            <option value="Fanta Laranja">Fanta Laranja - €1,80</option>
+                            <option value="Guaraná Antárctica">Guaraná Antárctica - €1,80</option>
+                            <option value="Sprite">Sprite - €1,80</option>
+                            <option value="Fanta Uva">Fanta Uva - €1,80</option>
+                            <option value="Pepsi">Pepsi - €1,80</option>
+                        </optgroup>
+                        <optgroup label="Sobremesas">
+                            <option value="Tiramisù Clássico">Tiramisù Clássico - €6,50</option>
+                        </optgroup>
                     </select>
                 </div>
                 <div>
-                    <label>Bebida:</label>
-                    <select id="item-bebida">
-                        <option value="Nenhum">Selecione...</option>
-                        <option value="Água Fresca">Água - €1,50</option>
-                        <option value="Coca-Cola">Coca-Cola - €1,80</option>
-                        <option value="Vinho Casa">Vinho - €18,00</option>
-                    </select>
+                    <label>Qtd:</label>
+                    <input type="number" id="qtd-item" min="1" value="1" style="width: 60px;">
                 </div>
             </div>
-            <button type="button" class="btn-secundario" onclick="adicionarAoCarrinho()" style="margin-top: 15px; width: 100%; background: #e67e22;">
+            <button type="button" class="btn-secundario" onclick="adicionarAoCarrinho()" style="margin-top: 15px; width: 100%; background: #e67e22; color: white; border: none; padding: 10px; border-radius: 5px; cursor: pointer;">
                 ➕ Adicionar ao Pedido
             </button>
         </section>
 
         <section class="card-pedido" id="area-carrinho" style="display:none;">
             <h3>🛒 Itens na Mesa</h3>
-            <ul id="lista-carrinho"></ul>
+            <ul id="lista-carrinho" style="list-style: none; padding: 0;"></ul>
             <hr>
-            <button type="button" class="btn-finalizar" onclick="mostrarPagamento()">
+            <button type="button" class="btn-finalizar" onclick="mostrarPagamento()" style="width: 100%; background: #27ae60; color: white; border: none; padding: 10px; border-radius: 5px; cursor: pointer;">
                 🏁 Fechar Pedido / Pagar
             </button>
         </section>
 
         <section class="card-pedido" id="secao-pagamento" style="display:none; background: #fdf2e9; border: 2px solid #e67e22;">
             <h3>💳 Finalizar Conta</h3>
-            <p>Como deseja pagar?</p>
             <div class="opcoes-pagamento">
                 <input type="radio" name="pagamento" value="MB WAY" id="pay1" checked> <label for="pay1">MB WAY</label><br>
                 <input type="radio" name="pagamento" value="Cartão" id="pay2"> <label for="pay2">Cartão</label><br>
                 <input type="radio" name="pagamento" value="Dinheiro" id="pay3"> <label for="pay3">Dinheiro</label>
             </div>
-            <button type="button" class="btn-finalizar" onclick="enviarWhatsAppFinal()" style="margin-top: 15px;">
+            <button type="button" class="btn-finalizar" onclick="enviarWhatsAppFinal()" style="margin-top: 15px; width: 100%;">
                 ✅ Enviar Pedido para Cozinha
             </button>
         </section>
-
     </main>
-
-    <footer id="contacto">
-        <div class="copyright">
-            <p>&copy; 2026 Bella Pizza - Formador João Pedro</p>
-        </div>
-    </footer>
 
     <script src="script.js"></script>
 </body>
