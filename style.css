@@ -965,98 +965,91 @@ footer a {
     margin-bottom: 40px;
 }
 /* ============================================================
-   SECTION 8: RESPONSIVIDADE (Aula 7: Media Queries)
+   AJUSTE FINAL PARA MOBILE (RESOLUÇÃO DE SOBREPOSIÇÃO)
    ============================================================ */
 
-/* Dispositivos Médios (Tablets - até 992px) */
-@media (max-width: 992px) {
-    .container { width: 90%; }
-    .hero-content h2 { font-size: 45px; }
-    .promo-item { width: 48%; }
-}
-
-/* Dispositivos Pequenos (Telemóveis - até 768px) */
 @media (max-width: 768px) {
-    /* 1. Ajuste da Navbar */
+    /* 1. Corrigir o Menu (Navbar) que está amontoado */
     .navbar {
-        flex-direction: column; /* Logo em cima, menu em baixo */
-        padding: 15px 0;
+        flex-direction: column;
+        padding: 15px 10px;
+        height: auto;
     }
-    
+
     .navbar ul {
-        margin-top: 15px;
-        gap: 5px;
-        flex-wrap: wrap; /* Permite que os links quebrem linha se necessário */
+        flex-direction: row; /* Mantém em linha, mas permite quebrar */
+        flex-wrap: wrap;
         justify-content: center;
+        gap: 5px;
+        margin-top: 10px;
     }
 
     .navbar ul li a {
-        margin-left: 5px;
-        margin-right: 5px;
-        font-size: 14px;
+        margin: 2px;
+        padding: 5px 8px;
+        font-size: 13px; /* Diminuir fonte para caber tudo */
+        display: block;
     }
 
-    /* 2. Transformar Flex em Coluna (Empilhamento) */
-    .flex, .eventos-wrapper, .galeria-grid, .promos-grid {
-        flex-direction: column !important;
-        align-items: center;
+    /* 2. Ajustar o Texto que está cortando (História/Home) */
+    .hero-content h2, h2 {
+        font-size: 26px !important;
+        line-height: 1.2;
     }
 
-    /* 3. Ajustar larguras que eram 50% ou 45% para 100% */
-    .eventos-imagem, .eventos-texto, 
-    .aniv-texto, .aniv-imagem, 
-    .promo-item, .galeria-item,
-    .info-contato, .mapa,
-    .sobre-texto, .sobre-imagem {
+    .sobre-texto, .eventos-texto, .aniv-texto {
         width: 100% !important;
-        padding: 0;
+        padding: 15px !important;
         text-align: center;
     }
 
-    /* 4. Ajustes do Hero para Mobile */
-    .hero-content h2 {
-        font-size: 32px; /* Diminuir o título para não vazar */
-        padding: 0 10px;
+    .flex {
+        flex-direction: column !important;
     }
 
-    .btn-principal {
-        padding: 15px 40px; /* Reduzir o botão gigante no mobile */
-        width: 80%; /* Botão largo para facilitar o toque */
+    /* 3. Corrigir a Tabela de Cardápio (que vaza na lateral) */
+    table {
+        display: block;
+        overflow-x: auto; /* Permite deslizar a tabela lateralmente */
+        white-space: normal;
     }
 
-    /* 5. Ajustes de Formulários e Tabelas */
-    form { width: 95%; padding: 20px; }
-    .grid-inputs { grid-template-columns: 1fr; } /* Inputs um debaixo do outro */
-    
-    table, thead, tbody, th, td, tr {
-        display: block; /* Transforma a tabela em blocos para caber no ecrã */
+    th, td {
+        padding: 10px 5px;
+        font-size: 13px;
     }
 
-    /* 6. Ajuste do Mapa */
-    .mapa-moldura {
-        height: 250px;
-        left: 0;
-        margin: 20px 0;
+    /* 4. Ajustar Formulários (Identificação e Reservas) */
+    form, .form-complexo {
+        width: 95% !important;
+        padding: 15px !important;
     }
 
-    /* 7. Esconder decorações que atrapalham o mobile */
-    .baloes-decorativos {
-        display: none; /* Balões costumam tapar o texto em ecrãs muito pequenos */
+    .grid-inputs {
+        grid-template-columns: 1fr !important; /* Coloca um input abaixo do outro */
     }
 
-    .selo-desconto {
-        left: 0;
-        top: 0;
-        transform: none;
+    input[type="text"], input[type="tel"], select, textarea, input[type="number"] {
+        width: 100% !important;
+        margin-left: 0 !important;
+    }
+
+    /* 5. Ajustar o botão "Chamar Garçom" que está flutuando errado */
+    .btn-garcom {
+        position: static; /* Remove o fixo no mobile para não tapar o menu */
         width: 100%;
-        text-align: center;
-        border-radius: 0;
+        margin-top: 10px;
+        border-radius: 8px;
     }
-}
 
-/* Dispositivos Muito Pequenos (até 480px) */
-@media (max-width: 480px) {
-    .hero-content h2 { font-size: 28px; }
-    .hero-content p { font-size: 16px; }
-    .navbar ul li a { font-size: 12px; padding: 5px; }
+    /* 6. Ajuste da Imagem da História */
+    .sobre-imagem, .eventos-imagem, .aniv-imagem {
+        width: 80% !important;
+        margin: 0 auto 20px;
+    }
+
+    /* 7. Corrigir o Hero para a imagem aparecer melhor */
+    #hero {
+        height: 70vh; /* Menor no mobile para não precisar rolar tanto */
+    }
 }
